@@ -1,1 +1,49 @@
-/* You can add global styles to this file, and also import other style files */
+
+:root {
+    --background-dark: #141D2F;
+    --green: #70E61C;
+    --purple: #9747FF;
+
+    --white: #ffffff;
+    --black: #000000;
+    ;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-dark);
+    color: var(--white);
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+  
+.background-image-right, .background-image-left {
+    max-width: 1920px;
+    margin: 0 auto;
+}
+
+.background-image-left {
+    background-image: url('./assets/images/purple_shadow_1.svg');
+    // background-image: url(./media/purple_shadow_1.svg);
+    background-repeat: no-repeat;
+    background-position: left 109px;
+}
+
+.background-image-right {
+    background-image: url('./assets/images/purple_shadow.svg');
+    // background-image: url(./media/purple_shadow_2.svg);
+    background-repeat: no-repeat;
+    background-position: right 109px;
+}
