@@ -1,13 +1,9 @@
 
-:root {
-    --background-dark: #141D2F;
-    --green: #70E61C;
-    --purple: #9747FF;
-
-    --white: #ffffff;
-    --black: #000000;
-    ;
-}
+$background-dark: #141D2F;
+$green: #70E61C;
+$purple: #9747FF;
+$white: #ffffff;
+$black: #000000;
 
 * {
     margin: 0;
@@ -17,10 +13,19 @@
 
 body {
     font-family: 'Poppins', sans-serif;
-    background-color: var(--background-dark);
-    color: var(--white);
+    background-color: $background-dark;
+    color: $white;
     scroll-behavior: smooth;
     font-size: 16px;
+    line-height: 19.2px;
+    font-weight: 400;
+}
+
+h2 {
+    font-size: 90px;
+    font-weight: 700;
+    line-height: 108px;
+    margin-bottom: 24px;
 }
 
 .container {
@@ -36,14 +41,12 @@ body {
 
 .background-image-left {
     background-image: url('./assets/images/purple_shadow_1.svg');
-    // background-image: url(./media/purple_shadow_1.svg);
     background-repeat: no-repeat;
     background-position: left 109px;
 }
 
 .background-image-right {
     background-image: url('./assets/images/purple_shadow.svg');
-    // background-image: url(./media/purple_shadow_2.svg);
     background-repeat: no-repeat;
     background-position: right 109px;
 }

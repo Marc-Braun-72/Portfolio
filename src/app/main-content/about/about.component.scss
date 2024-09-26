@@ -1,0 +1,113 @@
+
+
+section#about {
+    position: relative; 
+    width: 100%;
+}
+
+.about_image {
+    position: relative; 
+    z-index: 2; 
+}
+
+.about_content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: flex-start; 
+    gap: 20px; 
+}
+
+.about_text {
+    flex: 1;  
+}
+
+.about_image {
+    flex: 1;
+    max-width: 50%;
+    position: relative; 
+    z-index: 2; 
+}
+
+img {
+    width: 100%; 
+    height: auto;
+}
+
+section#about {
+top: 200px;
+position: relative;
+}
+
+
+ul {
+    list-style: none;
+    margin-top: 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+
+    li {
+        &.about_1, &.about_2, &.about_3 {
+            background-repeat: no-repeat;
+            padding-left: 40px;
+            position: relative;
+            gap: 20px;
+            background-size: 25px 32px; 
+        }
+
+        &.about_1 { 
+            background-image: url('./../../../assets/images/icons/about_icon_1.svg');
+        }
+        &.about_2 { 
+            background-image: url('./../../../assets/images/icons/about_icon_2.svg');
+        }
+        &.about_3 { 
+            background-image: url('./../../../assets/images/icons/about_icon_3.svg');
+        }
+    }
+}
+
+.about_background_left,
+.about_background_right {
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    position: relative;
+
+    &.about_background_left {
+        background-image: url('./../../../assets/images/about_purple_shadow.svg');
+        background-position: left 0px;
+    }
+    
+    &.about_background_right {
+        background-image: url('./../../../assets/images/about_green_shadow.svg');
+        background-position: right;
+    }
+}
+
+
+
+@media (max-width: 768px) {
+    .about_content {
+        flex-direction: column;
+        align-items: center; 
+    }
+
+    .about_text {
+        text-align: center; 
+    }
+
+    .about_image {
+        max-width: 100%; 
+        margin-top: 20px; 
+    }
+
+    ul {
+        max-width: 100%;
+        margin: 0 auto;
+    }
+
+    li {
+        padding-left: 0; 
+    }
+}

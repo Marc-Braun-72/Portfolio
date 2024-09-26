@@ -1,0 +1,88 @@
+
+// Importiere globale Variablen
+@import './../../../styles.scss';
+
+
+.flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Hero */
+.hero {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    height: calc(100vh - 300px);
+    flex-direction: column;
+
+    .hero_content {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .vertical {
+        writing-mode: vertical-rl;
+        transform: rotate(180deg);
+        font-size: 90px;
+        line-height: 108px;
+        font-weight: 400;
+        margin-top: 12px;
+    }
+
+    .horizontal-name {
+        color: $white;
+        font-size: 128px;
+        font-weight: 700;
+        line-height: 153.6px;
+        margin: 0;
+    }
+
+    .horizontal-title {
+        color: $purple;
+        font-size: 64px;
+        font-weight: 400;
+        line-height: 76.8px;
+        margin: 0;
+    }
+}
+
+/* Button */
+a {
+    display: inline-block;
+    z-index: 1;
+}
+
+#primary-btn {
+    margin-top: 80px;
+}
+
+button.primary {
+    filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+    transition: all 300ms ease-in-out;
+    background-color: $green;
+    border: none;
+    cursor: pointer;
+    color: $white;
+    padding: 15px 30px;
+    gap: 10px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    text-decoration: none;
+    width: 165px;
+    height: 58px;
+    border-radius: 10px;
+
+    &:hover {
+        transform: scale(1.2);
+        background-color: $purple;
+    }
+}
