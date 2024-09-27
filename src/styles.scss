@@ -2,6 +2,7 @@
 $background-dark: #141D2F;
 $green: #70E61C;
 $purple: #9747FF;
+$indigo: #1CDAE6;
 $white: #ffffff;
 $black: #000000;
 
@@ -42,11 +43,79 @@ h2 {
 .background-image-left {
     background-image: url('./assets/images/purple_shadow_1.svg');
     background-repeat: no-repeat;
-    background-position: left 109px;
+    background-position: left top;
 }
 
 .background-image-right {
     background-image: url('./assets/images/purple_shadow.svg');
     background-repeat: no-repeat;
-    background-position: right 109px;
+    background-position: right -109px;
+}
+
+
+#primary-btn {
+    margin-top: 80px;
+}
+
+// button.primary {
+//     filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+//     transition: all 300ms ease-in-out;
+//     background-color: $green;
+//     border: none;
+//     cursor: pointer;
+//     color: $white;
+//     padding: 15px 30px;
+//     gap: 10px;
+//     font-size: 23px;
+//     font-weight: 400;
+//     line-height: 27.6px;
+//     text-decoration: none;
+//     width: 165px;
+//     height: 58px;
+//     border-radius: 10px;
+
+//     &:hover {
+//         transform: scale(1.2);
+//         background-color: $purple;
+//     }
+// }
+
+button.primary {
+    background-color: $green; 
+    color: $white;
+    border: none;
+    padding: 12px 24px; 
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    width: 165px;
+    height: 58px;
+    border-radius: 10px; 
+    cursor: pointer;
+    overflow: hidden; 
+    position: relative;
+    transition: box-shadow 0.3s ease; 
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2); 
+}
+
+button.primary:hover {
+    transform: scale(1.1);
+    background-color: $purple;
+}
+
+
+/* Ripple Effekt */
+.ripple {
+    position: absolute;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4); 
+    transform: scale(0);
+    animation: ripple-animation 0.6s linear;
+}
+
+@keyframes ripple-animation {
+    to {
+        transform: scale(4); 
+        opacity: 0; 
+    }
 }

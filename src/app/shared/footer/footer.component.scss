@@ -1,0 +1,46 @@
+
+// Importiere globale Variablen
+@import './../../../styles.scss';
+
+
+/* Icons 
+**********************************************************/
+
+.icon-row {
+    display: flex; 
+    align-items: center; 
+}
+
+.green-line {
+    width: 100px; 
+    height: 3px; 
+    background-color: $green;
+    margin-right: 40px; 
+}
+
+.icon-link {
+    display: inline-block;
+    margin-right: 40px; 
+    transition: transform 0.3s ease;
+}
+
+.icon {
+    width: 30px; 
+    height: 30px;
+}
+
+.icon-link:hover .icon {
+    transform: scale(1.2); 
+}
+
+footer {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 40px 20px; 
+
+
+    font-size: 16px; 
+    font-weight: 400; 
+    line-height: 19.2px; 
+}

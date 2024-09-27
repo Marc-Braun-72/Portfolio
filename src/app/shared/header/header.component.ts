@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -9,28 +9,13 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  texts: { [key: string]: { button: string; header: string } } = {
-    en: {
-      button: "Let's talk!",
-      header: "Welcome"
-    },
-    de: {
-      button: "Lass uns reden!",
-      header: "Willkommen"
+  @HostListener('window:scroll', [])
+  onWindowScroll() {
+    const header = document.querySelector('header');
+    if (window.pageYOffset > 50) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled'); 
     }
-  };
-
-  currentLanguage = 'en';
-
-  changeLanguage(language: string): void {
-    this.currentLanguage = language;
-  }
-
-  get buttonText(): string {
-    return this.texts[this.currentLanguage].button;
-  }
-
-  get headerText(): string {
-    return this.texts[this.currentLanguage].header;
   }
 }

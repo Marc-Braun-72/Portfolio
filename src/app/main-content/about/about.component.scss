@@ -1,8 +1,12 @@
 
+// Importiere globale Variablen
+@import './../../../styles.scss';
+
 
 section#about {
     position: relative; 
     width: 100%;
+    // margin-top: 50px;
 }
 
 .about_image {
