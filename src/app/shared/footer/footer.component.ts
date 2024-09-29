@@ -10,4 +10,10 @@ import { RouterModule } from '@angular/router';
 })
 export class FooterComponent {
 
+  currentYear: number;
+
+  constructor() {
+    this.currentYear = new Date().getFullYear();
+  }
 }
+

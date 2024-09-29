@@ -3,11 +3,25 @@
 // Importiere globale Variablen
 @import './../../../styles.scss';
 
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.portfolio {
+    text-align: center;
+    padding: 20px;
+}
+
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    width: 1500px; 
+    max-width: 1240px;
     margin: 0 auto;
 }
 
@@ -19,7 +33,72 @@
     justify-content: center;
     align-items: center;
     color: $white;
+    font-size: 24px;
+    font-weight: bold;
     border: 1px solid $green;
     border-radius: 15px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1;
+    flex-wrap: wrap;
+
+    &:before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        // border-radius: 15px;
+    }
+
+    // Hintergrundbilder für jede Box
+    &:nth-child(1) {
+        background-image: url('./../../../assets/images/work/el_pollo_loco.svg');
+    }
+
+    &:nth-child(2) {
+        background-image: url('./../../../assets/images/work/join.svg');
+    }
+
+    &:nth-child(3) {
+        background-image: url('./../../../assets/images/work/da_bubble.svg');
+    }
+
+    &:nth-child(4) {
+        background-image: url('./../../../assets/images/work/pokedex.svg');
+    }
 }
-  
+
+
+h2 {
+    margin-bottom: 0;
+}
+
+.portfolio-line {
+    width: 50px;
+    height: 4px;
+    background-color: green;
+    margin: 0 auto 20px auto;
+}
+
+@media (max-width: 1300px) {
+    .portfolio-container {
+        max-width: 100%;
+    }
+    
+    .box {
+        width: calc(50% - 20px);
+        margin: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .box {
+        width: calc(100% - 20px); 
+        margin: 10px;
+    }
+}

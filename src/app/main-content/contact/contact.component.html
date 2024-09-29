@@ -1,1 +1,61 @@
-<h2>Contact</h2>
+<div class="contact-header">
+    <div class="invisible"></div>
+    <h2>Kontakt</h2>
+    <div class="line"></div>
+</div>
+<section class="contact">
+    <div class="contact-container">
+
+        <div class="contact-text">
+            <div class="line_left"></div>
+            <h3>Got a problem to solve?</h3>
+            <p>Contact me through this form, I am interested in hearing from you, knowing your ideas and contributing to your projects with my work.</p>
+            <p class="margin-top">Need a Frontend developer? <span>Contact me!</span></p>
+        </div>
+
+        <div class="contact-form">
+            <form id="contactForm" (ngSubmit)="onSubmit()" [formGroup]="contactForm" novalidate>
+                <!-- Honeypot Input (unsichtbar) -->
+                <div class="form-group honeypot">
+                    <input type="text" id="honeypot" formControlName="honeypot" placeholder="Your name" />
+                </div>
+        
+                <div class="form-group">
+                    <label for="name"></label>
+                    <input type="text" id="name" formControlName="name" placeholder="Your name" />
+                    <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="error">
+                        Name is required.
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="email"></label>
+                    <input type="email" id="email" formControlName="email" placeholder="Your email" />
+                    <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="error">
+                        Valid email is required.
+                    </div>
+                </div>
+        
+                <div class="form-group">
+                    <label for="message"></label>
+                    <textarea id="message" formControlName="message" placeholder="Your message"></textarea>
+                    <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="error">
+                        Message is required.
+                    </div>
+                </div>
+        
+                <div class="form-group checkbox-group">
+                    <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy" />
+                    <label for="privacyPolicy">I've read the privacy policy and agree to the processing of my data as outlined.</label>
+                    <div *ngIf="contactForm.get('privacyPolicy')?.touched && contactForm.get('privacyPolicy')?.invalid" class="error">
+                        You must agree to the privacy policy.
+                    </div>
+                </div>
+        
+                <button type="submit" [disabled]="!contactForm.valid || contactForm.get('honeypot')?.value" class="submit-btn">
+                    Send message :)
+                </button>
+            </form>
+        </div>
+    </div>
+</section>

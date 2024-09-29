@@ -1,13 +1,7 @@
 
-
-// Importiere globale Variablen
+// globale Variablen
 @import './../../../styles.scss';
 
-
-
-
-/* Header
-*********************************************************/
 header {
     position: fixed; 
     top: 0; 
@@ -104,20 +98,3 @@ header.scrolled {
     }
 }
 
-.half-colored2 {
-    display: inline-block;
-    position: relative;
-    color: $white;
-
-    &::before {
-        content: 'B';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 50%;
-        height: 100%;
-        background-color: $purple;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        z-index: 10;
-    }
-}

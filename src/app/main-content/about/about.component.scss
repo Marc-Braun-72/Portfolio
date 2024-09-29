@@ -6,7 +6,6 @@
 section#about {
     position: relative; 
     width: 100%;
-    // margin-top: 50px;
 }
 
 .about_image {
@@ -22,7 +21,9 @@ section#about {
 }
 
 .about_text {
-    flex: 1;  
+    flex: 1;
+    max-width: 470px;
+    margin-left: 50px;
 }
 
 .about_image {
@@ -42,6 +43,9 @@ top: 200px;
 position: relative;
 }
 
+.mg-16 {
+    margin-top: 16px;
+}
 
 ul {
     list-style: none;
@@ -54,7 +58,7 @@ ul {
     li {
         &.about_1, &.about_2, &.about_3 {
             background-repeat: no-repeat;
-            padding-left: 40px;
+            padding-left: 50px;
             position: relative;
             gap: 20px;
             background-size: 25px 32px; 

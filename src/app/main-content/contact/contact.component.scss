@@ -2,3 +2,163 @@
 
 // Importiere globale Variablen
 @import './../../../styles.scss';
+
+
+.contact {
+    margin: 50px auto;
+    padding: 20px;
+}
+
+.contact-header {
+    display: flex;
+    text-align: center;
+    position: relative;
+    margin-bottom: 30px;
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    h2 {
+        display: inline-block; 
+        position: relative;
+        font-size: 2.5rem;
+        margin: 0;
+        padding-right: 20px; 
+    }
+
+    .line {
+        height: 3px;
+        background-color: $green;
+        width: 40%;
+    }
+
+    .invisible {
+        height: 3px;
+        background-color: transparent;
+        width: 40%;
+    }
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 40px;
+}
+
+.contact-text {
+    width: 40%;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.contact-form {
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 640px;
+}
+
+.honeypot {
+    display: none;
+}
+
+.form-group {
+    margin-bottom: 20px;
+
+    label {
+        display: block;
+        color: $white;
+        margin-bottom: 5px;
+    }
+
+    input:not([type="checkbox"]), textarea {
+        width: 100%;
+        padding: 18px;
+        background-color: $background-dark; 
+        border: 1px solid $purple;
+        border-radius: 10px;
+        color: $white;
+        outline: none;
+        transition: border-color 0.3s ease;
+
+        &:hover, &:focus {
+            border-color: #1CDAE6; 
+        }
+
+        &::placeholder {
+            color: $white; 
+            font-size: 16px;
+            line-height: 19.2px;
+            font-weight: 400;
+        }
+    }
+
+    textarea {
+        height: 150px; 
+    }
+}
+
+/* Fehlermeldungen */
+.error {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 5px;
+}
+
+.checkbox-group {
+    display: flex;
+    align-items: center;
+}
+input[type="checkbox"] {
+    appearance: none !important; 
+    -webkit-appearance: none !important; 
+    width: 20px !important;
+    height: 20px !important;
+    border: 2px solid $green !important;
+    border-radius: 3px;
+    position: relative;
+    outline: none;
+    cursor: pointer;
+    background-color: transparent;
+    box-sizing: border-box;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    margin-right: 16px;
+
+    &:checked {
+        background-color: $green !important; 
+    }
+
+    &:checked::after {
+        content: ''; 
+        position: absolute;
+        top: 2px;
+        left: 5px;
+        width: 6px;
+        height: 10px;
+        border: solid $white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+    }
+
+    &:hover {
+        border-color: #1CDAE6 !important; 
+    }
+}
+
+.submit-btn {
+    background-color: grey;
+    border: none;
+    color: $white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: not-allowed;
+    transition: background-color 0.3s ease;
+
+    &:not(:disabled) {
+        background-color: $green; 
+        cursor: pointer;
+    }
+}
