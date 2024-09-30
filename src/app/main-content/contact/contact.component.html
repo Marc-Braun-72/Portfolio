@@ -46,7 +46,7 @@
         
                 <div class="form-group checkbox-group">
                     <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy" />
-                    <label for="privacyPolicy">I've read the privacy policy and agree to the processing of my data as outlined.</label>
+                    <label for="privacyPolicy">I've read the <span><a href="/privacy-policy" (click)="openPrivacyPolicy($event)">privacy policy</a></span> and agree to the processing of my data as outlined.</label>
                     <div *ngIf="contactForm.get('privacyPolicy')?.touched && contactForm.get('privacyPolicy')?.invalid" class="error">
                         You must agree to the privacy policy.
                     </div>
