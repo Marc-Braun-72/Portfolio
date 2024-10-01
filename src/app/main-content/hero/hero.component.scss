@@ -3,6 +3,14 @@
 @import './../../../styles.scss';
 
 
+#hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 1080px;
+    margin-bottom: 100px;
+}
+
 .flex {
     display: flex;
     flex-direction: column;
@@ -16,7 +24,7 @@
     align-items: center;
     text-align: center;
     margin: 0;
-    padding: 0;
+    padding: 0 5vw;
     height: calc(100vh);
     flex-direction: column;
     padding: 0 70px;

@@ -15,6 +15,7 @@ body {
 .portfolio {
     text-align: center;
     padding: 20px;
+    background-color: $background-dark;
 }
 
 .portfolio-container {
@@ -23,6 +24,7 @@ body {
     justify-content: center;
     max-width: 1240px;
     margin: 0 auto;
+
 }
 
 .box {

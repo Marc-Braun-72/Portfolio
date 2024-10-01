@@ -3,15 +3,16 @@
 @import './../../../styles.scss';
 
 
-section#about {
-    position: relative; 
-    width: 100%;
-    padding: 0 30px;
+#about {
+    margin-bottom: -100px;
 }
 
-.about_image {
-    position: relative; 
-    z-index: 2; 
+
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
 }
 
 .about_content {
@@ -34,16 +35,19 @@ section#about {
     z-index: 2; 
 }
 
-img {
-    width: 100%; 
-    height: auto;
-    padding-right: 70px;
+.about_image img {
+    width: 100%; /* Lässt das Bild die volle Breite des Containers einnehmen */
+    max-width: 600px; /* Setzt eine maximale Breite für große Bildschirme */
+    height: auto; /* Beibehaltung des Seitenverhältnisses */
+    padding-right: 0; /* Entfernt das Padding für die mobile Ansicht */
+    background-size: contain;
 }
 
-section#about {
-top: 200px;
-position: relative;
-}
+img {
+    max-width: 100%;
+    height: auto;
+  }
+
 
 .mg-16 {
     margin-top: 16px;
@@ -95,7 +99,24 @@ ul {
     }
 }
 
+.about-background {
+    background-image: url('./../../../assets/images/vector_shape_hero_page.svg');
+    background-size: 100% auto;
+    background-position: top center;
+    width: 100%;
+    height: 1000px;
+    z-index: 2;
+    background-repeat: no-repeat;
+    position: absolute;
+    margin-top: -290px;
+}
 
+
+
+@media (max-width: 1024px) {
+    /* Anpassungen für Tablets */
+  }
+  
 
 @media (max-width: 768px) {
     .about_content {
@@ -121,3 +142,10 @@ ul {
         padding-left: 0; 
     }
 }
+
+
+@media (max-width: 480px) {
+    /* Anpassungen für kleinere Smartphones */
+  }
+
+  

@@ -1,11 +1,14 @@
 // Globale Variablen
 @import './../../../styles.scss';
 
+
+
 .carousel {
     margin: 50px auto;
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: $background-dark;
 
     .carousel-container {
         width: 1300px;
