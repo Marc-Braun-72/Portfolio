@@ -22,6 +22,7 @@ section#skills {
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
+    padding: 0 70px;
 }
 
 .skills-background {
@@ -82,6 +83,33 @@ section#skills {
 
 .icon-item .icon {
     transition: transform 1.0s ease-in; 
+}
+
+/* Standardmäßig verstecke das kleine Bild */
+.icon-item .small-image {
+    display: none;
+    transform: translateX(-50%);
+    width: 150px;
+    height: auto;
+    position: absolute;
+    left: 140px;
+    bottom: 250px;
+    z-index: 500;
+}
+
+.icon-item:hover .small-image {
+    display: block; 
+}
+
+.icon-11 {
+    animation: none !important;
+    transition: none !important;
+    transform: none !important; 
+}
+
+.icon-item:hover .icon-11 {
+    transform: none !important;
+    transition: none !important;
 }
 
 @keyframes bounce {
