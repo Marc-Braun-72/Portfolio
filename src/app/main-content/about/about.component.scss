@@ -2,24 +2,28 @@
 // Importiere globale Variablen
 @import './../../../styles.scss';
 
-
 #about {
     margin-bottom: -100px;
+    position: relative;
+    overflow: hidden; 
+    background-color: $background-dark;
 }
-
 
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 90%;
     margin: 0 auto;
     padding: 0 15px;
+    position: relative; 
 }
 
 .about_content {
     display: flex;
     justify-content: space-between; 
-    align-items: flex-start; 
+    align-items: center;
     gap: 20px; 
+    position: relative; 
+    z-index: 2;
 }
 
 .about_text {
@@ -36,18 +40,17 @@
 }
 
 .about_image img {
-    width: 100%; /* Lässt das Bild die volle Breite des Containers einnehmen */
-    max-width: 600px; /* Setzt eine maximale Breite für große Bildschirme */
-    height: auto; /* Beibehaltung des Seitenverhältnisses */
-    padding-right: 0; /* Entfernt das Padding für die mobile Ansicht */
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    padding-right: 0;
     background-size: contain;
 }
 
 img {
     max-width: 100%;
     height: auto;
-  }
-
+}
 
 .mg-16 {
     margin-top: 16px;
@@ -82,21 +85,28 @@ ul {
     }
 }
 
-.about_background_left,
-.about_background_right {
+.background-left,
+.background-right {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 40%; 
+    height: 100%;
     background-repeat: no-repeat;
-    padding-left: 40px;
-    position: relative;
+    background-size: contain;
+    z-index: -1;
+}
 
-    &.about_background_left {
-        background-image: url('./../../../assets/images/about_purple_shadow.svg');
-        background-position: left 0px;
-    }
-    
-    &.about_background_right {
-        background-image: url('./../../../assets/images/about_green_shadow.svg');
-        background-position: right;
-    }
+.background-left {
+    left: 45%; 
+    background-image: url('./../../../assets/images/about_purple_shadow.svg');
+    background-position: left center;
+}
+
+.background-right {
+    right: -10%; 
+    background-image: url('./../../../assets/images/about_green_shadow.svg');
+    background-position: right center;
 }
 
 .about-background {
@@ -105,18 +115,18 @@ ul {
     background-position: top center;
     width: 100%;
     height: 1000px;
-    z-index: 2;
+    z-index: 0;
     background-repeat: no-repeat;
-    position: absolute;
+    position: relative;
     margin-top: -290px;
 }
 
-
-
 @media (max-width: 1024px) {
-    /* Anpassungen für Tablets */
-  }
-  
+    .background-left,
+    .background-right {
+        width: 25%;
+    }
+}
 
 @media (max-width: 768px) {
     .about_content {
@@ -126,6 +136,7 @@ ul {
 
     .about_text {
         text-align: center; 
+        margin-left: 0;
     }
 
     .about_image {
@@ -133,19 +144,15 @@ ul {
         margin-top: 20px; 
     }
 
-    ul {
-        max-width: 100%;
-        margin: 0 auto;
-    }
-
-    li {
-        padding-left: 0; 
+    .background-left,
+    .background-right {
+        width: 20%;
     }
 }
 
-
 @media (max-width: 480px) {
-    /* Anpassungen für kleinere Smartphones */
-  }
-
-  
+    .background-left,
+    .background-right {
+        width: 15%; 
+    }
+}

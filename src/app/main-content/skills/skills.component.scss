@@ -17,12 +17,14 @@ section#skills {
     z-index: 3;
     position: relative;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
     padding: 30px 70px 0 70px;
-    background-color: $background-dark;
+    background-color: #141D2F;
+    margin-top: -500px;
+    z-index: 22;
 }
 
 .skills-background {
@@ -143,6 +145,25 @@ section#skills {
 .flex {
     display: flex;
     align-items: center;
+    align-content: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.flex-skills {
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+h2 {
+    white-space: nowrap;
+    margin-right: 20px; 
+}
+
+.line-container {
+    flex-grow: 1;
+    overflow: visible;
 }
 
 .line {
