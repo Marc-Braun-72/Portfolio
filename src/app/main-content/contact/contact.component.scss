@@ -34,6 +34,7 @@
         height: 3px;
         background-color: $green;
         width: 40%;
+        z-index: 3;
     }
 
     .invisible {
@@ -48,6 +49,21 @@
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
+    position: relative;
+}
+
+.farbklecks-right {
+    position: absolute;
+    top: -240px;
+    width: 500px;
+    height: 700px;
+    overflow: hidden;
+    filter: blur(10px);
+    z-index: 1;
+    right: -150px; 
+    background-image: url('./../../../assets/images/shadows/purple_shadow_footer_v2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .contact-text {
@@ -59,8 +75,8 @@
 .contact-form {
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     max-width: 640px;
+    z-index: 2;
 }
 
 .honeypot {

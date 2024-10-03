@@ -12,6 +12,36 @@
   <!-- styles -->
   <link rel="stylesheet" href="assets/fonts/poppins/poppins.css">
 
+  <!-- sticky header fix -->
+  <script>
+function scrollToId() {
+  const navHeight = 109;
+  const targetId = window.location.hash.substring(1); // Hash ohne #
+  
+  if (targetId) {
+    const targetElement = document.getElementById(targetId);
+    
+    if (targetElement) {
+      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+      
+      // Log zur Fehlersuche
+      console.log(`Scrolling to: ${targetId}, Position: ${targetPosition}`);
+      
+      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+    }
+  }
+}
+
+window.addEventListener('hashchange', scrollToId);
+window.addEventListener('DOMContentLoaded', () => {
+  if (window.location.hash) {
+    scrollToId();
+  }
+});
+
+  </script>
+  
+
 </head>
   <body>
 

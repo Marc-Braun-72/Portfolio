@@ -3,21 +3,27 @@
 @import './../../../styles.scss';
 
 
-#hero {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    max-height: 1080px;
-    margin-bottom: 100px;
-
-}
-
 .flex {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
+
+#hero {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-height: 900px !important;
+    margin-bottom: 100px;
+    max-width: 1440px;
+    background-color: transparent;
+    margin: 0 auto; 
+    padding: 0;
+}
+
+
 
 .hero {
     display: flex;
@@ -28,7 +34,7 @@
     padding: 0 5vw;
     height: calc(100vh);
     flex-direction: column;
-    padding: 0 70px;
+    position: relative;
 
     .hero_content {
         display: flex;
@@ -63,6 +69,30 @@
     }
 }
 
+.farbklecks-left, .farbklecks-right {
+    position: absolute;
+    top: 170px;
+    width: 500px; 
+    height: 500px;
+    overflow: hidden;
+    filter: blur(30px); 
+}
+
+.farbklecks-left {
+    left: -150px; 
+    background-image: url('./../../../assets/images/shadows/purple_shadow_about_me.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+
+}
+
+.farbklecks-right {
+    right: -150px; 
+    background-image: url('./../../../assets/images/shadows/blue_shadow_1_v2.svg');
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
 a {
     display: inline-block;
     z-index: 1;
@@ -75,14 +105,12 @@ a {
 /* Animated Arrow
 **********************************************************/
 .rotated-text-container {
-    position: absolute; 
-    right: 0; 
-    top: 80%;
     transform: translateY(-50%); 
     display: flex;
     flex-direction: column;
     align-items: center;
     cursor: pointer; 
+    float: right;
 }
 
 .rotated-text {
@@ -133,7 +161,6 @@ a {
     display: inline-block; 
 }
 
-// Hover-Effekte für den gesamten Container
 .rotated-text-container:hover {
     .rotated-text {
         color: $green;

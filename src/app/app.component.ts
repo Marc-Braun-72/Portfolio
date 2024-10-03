@@ -11,7 +11,7 @@ import { FooterComponent } from './shared/footer/footer.component';
   imports: [
     RouterModule,  
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
   ],
   template: `
     <app-header></app-header>

@@ -5,20 +5,24 @@
 header {
     position: fixed; 
     top: 0; 
-    left: 0;
-    width: 100%; 
+    left: 50%; 
+    transform: translateX(-50%); 
+    width: 100vw;
     height: 109px; 
     background-color: transparent; 
     transition: background-color 0.3s ease; 
     z-index: 1000;
     padding: 0 70px;
+    text-align: center;
 
     .header_content {
         display: flex;
         justify-content: space-between;
         align-items: center;
-
         height: 109px;
+        max-width: 1440px;
+        margin: 0 auto;
+        padding: 0 100px;
     }
 }
 
@@ -26,7 +30,6 @@ header.scrolled {
     background-color: $background-dark;
 }
 
-/* Menu */
 .header_menu {
     ul {
         list-style: none;
@@ -68,7 +71,6 @@ header.scrolled {
 }
 
 
-/* Logo */
 .header_logo {
     .logo_name {
         font-size: 40px;
@@ -117,3 +119,54 @@ header.scrolled {
     }
 }
 
+
+.switch {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+  }
+  
+  .switch input {
+    display: none; /* Versteckt das Checkbox-Element */
+  }
+  
+  .slider {
+    width: 50px;
+    height: 24px;
+    background-color: #ccc;
+    border-radius: 34px;
+    position: relative;
+    transition: background-color 0.4s ease;
+  }
+  
+  .slider:before {
+    content: "";
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
+  }
+  
+  input:checked + .slider {
+    background-color: #70E61C;; /* Farbe des Switches, wenn aktiviert */
+  }
+  
+  input:checked + .slider:before {
+    transform: translateX(26px); /* Bewegt den Knopf nach rechts */
+  }
+  
+  /* Text Styling */
+  .lang-text {
+    margin-left: 10px; /* Abstand zwischen Switch und Text */
+    font-size: 16px; /* Schriftgröße */
+  }
+  
+  /* Optionales Hover-Effekt für den Slider */
+  .slider:hover {
+    box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+  }

@@ -1,34 +1,31 @@
-
-
 <header>
     <div class="container">
         <div class="header_content">
-        <div class="header_logo">
-            <a href="index.html">
-                <h1 class="logo_name">
-                    <span class="half-colored">M</span>
-                    <span>a</span>
-                    <span>r</span>
-                    <span class="accent-green">c</span>
-                </h1>
-            </a>
-        </div>
-        <div class="header_menu">
-            <ul>
-                <li><a href="">EN / DE</a></li>
-                <li><a href=""></a></li>
-                <li><a href="#about">About me</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </div>
+            <div class="header_logo">
+                <a href="index.html">
+                    <h1 class="logo_name">
+                        <span class="half-colored">M</span>
+                        <span>a</span>
+                        <span>r</span>
+                        <span class="accent-green">c</span>
+                    </h1>
+                </a>
+            </div>
+            <div class="header_menu">
+                <ul>
+                    <li>
+                        <label class="switch">
+                            <input type="checkbox" [checked]="isEnglish" (change)="onLanguageChange()">
+                            <span class="slider"></span>
+                            <span class="lang-text">{{ isEnglish ? 'EN' : 'DE' }}</span>
+                        </label>
+                    </li>
+                    <li><a href="#about">{{ isEnglish ? 'About me' : 'Über mich' }}</a></li>
+                    <li><a href="#skills">{{ isEnglish ? 'Skills' : 'Fähigkeiten' }}</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">{{ isEnglish ? 'Contact' : 'Kontakt' }}</a></li>
+                </ul>
+            </div>
         </div>
     </div>
 </header>
-
-
-
-
-
-
