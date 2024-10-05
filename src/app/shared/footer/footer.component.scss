@@ -1,154 +1,161 @@
-
-// Importiere globale Variablen
 @import './../../../styles.scss';
 
-
-/* Icons 
-**********************************************************/
-
 .icon-row {
-    display: flex; 
-    align-items: center; 
+  display: flex;
+  align-items: center;
 }
 
 .green-line {
-    width: 100px; 
-    height: 3px; 
-    background-color: $green;
-    margin-right: 40px; 
+  width: 100px;
+  height: 3px;
+  background-color: $green;
+  margin-right: 40px;
 }
 
 .icon-link {
-    display: inline-block;
-    margin-right: 40px; 
-    transition: transform 0.3s ease;
+  display: inline-block;
+  margin-left: 40px;
+  transition: transform 0.3s ease;
+
+  &:hover .icon {
+    transform: scale(1.2);
+  }
 }
 
 .icon {
-    width: 30px; 
-    height: 30px;
-}
-
-.icon-link:hover .icon {
-    transform: scale(1.2); 
+  width: 30px;
+  height: 30px;
 }
 
 app-footer {
-    width: 100%;
+  width: 100%;
 }
 
 footer {
-    border-top: 3px solid $green;
-    display: flex; 
-    justify-content: space-between; 
-    align-items: center; 
-    padding: 40px 70px; 
-    font-size: 16px; 
-    font-weight: 400; 
-    line-height: 19.2px; 
-    height: 291px;
-    width: 100%;
-    background-color: $background-dark;
+  border-top: 3px solid $green;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 40px 40px;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 19.2px;
+  height: 291px;
+  width: 100%;
+  background-color: $background-dark;
 }
 
-
-/* Logo */
 .header_logo {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 
-    .logo_name {
-        font-size: 40px;
-        color: $white;
-        font-weight: bold;
-        text-decoration: none;
-        transition: color 0.3s ease-in-out;
-        line-height: 60px;
-        text-shadow: 0 0 2px $purple;
+  .logo_name {
+    font-size: 40px;
+    color: $white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+    line-height: 60px;
+    text-shadow: 0 0 2px $purple;
+  }
+
+  a {
+    text-decoration: none !important;
+
+    &:hover .logo_name span {
+      color: $white;
+      text-shadow: 0 0 10px $green;
+      transition: color 0.1s ease-in-out;
     }
-
-    a {
-        text-decoration: none !important;
-
-        &:hover .logo_name span {
-            color: $white;
-            text-shadow: 0 0 10px $green;
-            transition: color 0.1s ease-in-out;
-        }
-    }
+  }
 }
 
 .accent-green {
-    color: $green;
+  color: $green;
 }
 
 .accent-purple {
-    color: $purple;
+  color: $purple;
 }
 
 .half-colored {
-    display: inline-block;
-    position: relative;
-    color: $white;
+  display: inline-block;
+  position: relative;
+  color: $white;
 
-    &::before {
-        content: 'M';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 50%;
-        height: 100%;
-        background-color: $green;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        z-index: 10;
-    }
-}
-
-.half-colored2 {
-    display: inline-block;
-    position: relative;
-    color: $white;
-
-    &::before {
-        content: 'B';
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 50%;
-        height: 100%;
-        background-color: $purple;
-        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
-        z-index: 10;
-    }
+  &::before {
+    content: 'M';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    background-color: $green;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+    z-index: 10;
+  }
 }
 
 .footer_name {
-    font-size: 23px;
-    font-weight: 400;
-    line-height: 27.6px;
-    color: $white;
-    text-shadow: 0 0 2px $purple;
+  font-size: 23px;
+  font-weight: 400;
+  line-height: 27.6px;
+  color: $white;
+  text-shadow: 0 0 2px $purple;
 }
 
 .imprint {
-    color: $white;
-    position: relative;
-    text-decoration: none;
-    margin-top: 8px;
+  color: $white;
+  position: relative;
+  text-decoration: none;
+  margin-top: 8px;
+
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: $green;
+    transition: width 0.3s ease-in-out;
+  }
+
+  &:hover::after {
+    width: 70%;
+  }
+}
+
+
+@media (max-width: 690px) {
+    footer {
+      position: relative; 
+      flex-direction: column;
+      align-items: center;
+      height: auto;
   
-    &::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background-color: $green;
-      transition: width 0.3s ease-in-out;
-    }
+      .header_logo {
+        order: 1;
+        margin-bottom: 40px;
+      }
   
-    &:hover::after {
-      width: 70%;
+      .footer_name {
+        order: 2;
+        margin-bottom: 40px;
+      }
+  
+      .icon-row {
+        order: 3;
+        padding-bottom: 30px;
+        margin-bottom: 70px;
+      }
+  
+      .imprint {
+        position: absolute; 
+        bottom: 70px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+      }
     }
   }
   

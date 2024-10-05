@@ -4,125 +4,126 @@ $mobile-menu: #414856;
 $green: #70E61C;
 $purple: #9747FF;
 $indigo: #1CDAE6;
-$mobile-menu: #414856;
 $white: #ffffff;
 $black: #000000;
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background-color: $background-dark;
-    color: $white;
-    scroll-behavior: smooth;
-    font-size: 16px;
-    line-height: 19.2px;
-    font-weight: 400;
-    max-width: 1440px;
-    margin: 0 auto;
-    overflow-x: hidden;
+  font-family: 'Poppins', sans-serif;
+  background-color: $background-dark;
+  color: $white;
+  scroll-behavior: smooth;
+  font-size: 16px;
+  line-height: 19.2px;
+  font-weight: 400;
+  max-width: 1440px;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+app-main-content {
+  width: 100%;
 }
 
 h2 {
-    font-size: 90px;
-    font-weight: 700;
-    line-height: 108px;
-    margin-bottom: 24px;
+  font-size: 90px;
+  font-weight: 700;
+  line-height: 108px;
+  margin-bottom: 24px;
 }
 
 .container {
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 20px;
+  max-width: 1920px;
+  margin: 0 auto;
+  padding: 0 20px;
 }
-  
-.background-image-right, .background-image-left {
-    max-width: 1920px;
-    margin: 0 auto;
+
+.background-image-right,
+.background-image-left {
+  max-width: 1920px;
+  margin: 0 auto;
 }
 
 .background-image-left {
-    background-image: url('./assets/images/purple_shadow_1.svg');
-    background-repeat: no-repeat;
-    background-position: left top;
+  background-image: url('./assets/images/purple_shadow_1.svg');
+  background-repeat: no-repeat;
+  background-position: left top;
 }
 
 .background-image-right {
-    background-image: url('./assets/images/purple_shadow.svg');
-    background-repeat: no-repeat;
-    background-position: right -109px;
+  background-image: url('./assets/images/purple_shadow.svg');
+  background-repeat: no-repeat;
+  background-position: right -109px;
 }
 
-
 #primary-btn {
-    margin-top: 80px;
-  }
-  
-  button {
-    &.primary {
-      background-color: $green;
-      color: $white;
-      border: none;
-      padding: 12px 24px;
-      font-size: 23px;
-      font-weight: 400;
-      line-height: 27.6px;
-      width: 165px;
-      height: 58px;
-      border-radius: 10px;
-      cursor: pointer;
-      overflow: hidden;
-      position: relative;
-      transition: box-shadow 0.3s ease;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  
-      &:hover {
-        transform: scale(1.1);
-        background-color: $purple;
-      }
-    }
-  
-    &.secundary {
-      background-color: transparent;
-      color: $white;
-      border: 1px solid $indigo;
-      padding: 12px 24px;
-      font-size: 23px;
-      font-weight: 400;
-      line-height: 27.6px;
-      width: 165px;
-      height: 58px;
-      border-radius: 10px;
-      cursor: pointer;
-      overflow: hidden;
-      position: relative;
-      transition: box-shadow 0.3s ease;
-      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
-  
-      &:hover {
-        transform: scale(1.1);
-        background-color: $indigo;
-      }
-    }
-  }
-  
+  margin-top: 80px;
+}
 
-/* Ripple Effekt */
+button {
+  &.primary {
+    background-color: $green;
+    color: $white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    width: 165px;
+    height: 58px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $purple;
+    }
+  }
+
+  &.secundary {
+    background-color: transparent;
+    color: $white;
+    border: 1px solid $indigo;
+    padding: 12px 24px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    width: 165px;
+    height: 58px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+    &:hover {
+      transform: scale(1.1);
+      background-color: $indigo;
+    }
+  }
+}
+
 .ripple {
-    position: absolute;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.4); 
-    transform: scale(0);
-    animation: ripple-animation 0.6s linear;
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(0);
+  animation: ripple-animation 0.6s linear;
 }
 
 @keyframes ripple-animation {
-    to {
-        transform: scale(4); 
-        opacity: 0; 
-    }
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
 }

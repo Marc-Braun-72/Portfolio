@@ -12,12 +12,19 @@
                 </a>
             </div>
 
-            <div class="hamburger-icon" (click)="toggleMenu()">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
-            </div>
+            <div class="flex">
+                <label class="switch mobile-switch">
+                    <input type="checkbox" checked [checked]="isEnglish" (change)="onLanguageChange()">
+                    <span class="slider"></span>
+                    <span class="lang-text">{{ isEnglish ? 'EN' : 'DE' }}</span>
+                </label>
 
+                <div class="hamburger-icon" (click)="toggleMenu()">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
             <div class="header_menu" [class.menu-open]="menuOpen">
                 <ul>
                     <li><a href="#about">{{ isEnglish ? 'About me' : 'Über mich' }}</a></li>
