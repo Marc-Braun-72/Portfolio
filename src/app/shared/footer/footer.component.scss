@@ -54,6 +54,9 @@ footer {
 
 /* Logo */
 .header_logo {
+    display: flex;
+    flex-direction: column;
+
     .logo_name {
         font-size: 40px;
         color: $white;
@@ -126,3 +129,26 @@ footer {
     color: $white;
     text-shadow: 0 0 2px $purple;
 }
+
+.imprint {
+    color: $white;
+    position: relative;
+    text-decoration: none;
+    margin-top: 8px;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -8px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: $green;
+      transition: width 0.3s ease-in-out;
+    }
+  
+    &:hover::after {
+      width: 70%;
+    }
+  }
+  

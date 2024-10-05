@@ -1,19 +1,142 @@
 
+<section id="portfolio">
 
-<div class="portfolio">
-    <div class="farbklecks-right"></div>
-    <div class="farbklecks-left"></div>
-    
-    <div class="flex">
-        <h2>Portfolio</h2>
-        <p class="portolio-line"></p>
-    </div>
-    <p>Explore a selection of my work here - Interact with projects to see my skills in action.</p>
+    <div class="portfolio">
+        <div class="farbklecks-right"></div>
+        <div class="farbklecks-left"></div>
+        
+        <div class="portfolio-container">
+            <div class="portfolio-header">
+                <div class="flex">
+                    <p class="portfolio-line"></p>
+                    <h2>{{ isEnglish ? 'Portfolio' : 'Portfolio' }}</h2>
+                </div>
+                <p>{{ isEnglish ? 
+                    'Explore a selection of my work here - Interact with projects to see my skills in action.' : 
+                    'Entdecke hier eine Auswahl meiner Arbeiten – Interagiere mit Projekten, um meine Fähigkeiten in Aktion zu sehen.' }}
+                </p>
+            </div>
+            
+            <div class="box box1">
+                <div class="box-buttons">
+                    <a href="https://github.com/Marc-Braun-72/El-Pollo-Loco" target="_blank">
+                        <button id="primary-btn" class="secundary ripple-button" (click)="addRippleEffect($event)">Github</button>
+                    </a>
+                    
+                    <a href="https://marc-braun.com/" target="_blank">
+                        <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                            {{ isEnglish ? 'Live test' : 'Live-Test' }}
+                        </button>
+                    </a>
+                    
+                </div>
+                <div class="box-content">
+                    <div class="content-top"></div>
+                    <div class="content-bottom">
+                        <h3 class="box-title">El Pollo Loco</h3>
+                        <p class="box-text">{{ isEnglish ? 
+                            'Jump, run and throw game based on object-oriented approach. Help Pepe to find coins and tabasco salsa to fight against the crazy hen.' : 
+                            'Springe, laufe und werfe in einem Spiel, das auf objektorientierter Programmierung basiert. Hilf Pepe, Münzen und Tabasco-Salsa zu finden, um gegen das verrückte Huhn zu kämpfen.' }}
+                        </p>
+                        <div class="box-links">
+                            <p>JavaScript</p>
+                            <p>HTML</p>
+                            <p>CSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="box box2">
+                <div class="box-buttons">
+                    <a href="https://github.com/Marc-Braun-72/Join-board" target="_blank">
+                        <button id="primary-btn" class="secundary ripple-button" (click)="addRippleEffect($event)">Github</button>
+                    </a>
+                    
+                    <a href="https://marc-braun.com/" target="_blank">
+                        <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                            {{ isEnglish ? 'Live test' : 'Live-Test' }}
+                        </button>
+                    </a>
+                    
+                </div>
+                <div class="box-content">
+                    <div class="content-top"></div>
+                    <div class="content-bottom">
+                        <h3 class="box-title">Join</h3>
+                        <p class="box-text">{{ isEnglish ? 
+                            'Task manager inspired by the Kanban System. Create and organize tasks using drag and drop functions, assign users and categories.' : 
+                            'Task-Manager inspiriert vom Kanban-System. Erstelle und organisiere Aufgaben mithilfe von Drag-and-Drop-Funktionen, weise Benutzer und Kategorien zu.' }}
+                        </p>
+                        <div class="box-links">
+                            <p>JavaScript</p>
+                            <p>Firebase</p>
+                            <p>HTML</p>
+                            <p>CSS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
-    <div class="portfolio-container">
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
-        <div class="box"></div>
+            <!-- <div class="box box3">
+                <div class="box-buttons">
+                    <a href="https://github.com/Marc-Braun-72" target="_blank">
+                        <button id="primary-btn" class="secundary ripple-button" (click)="addRippleEffect($event)">Github</button>
+                    </a>
+                    
+                    <a href="https://marc-braun.com/" target="_blank">
+                        <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                            {{ isEnglish ? 'Live test' : 'Live-Test' }}
+                        </button>
+                    </a>
+                    
+                </div>
+                <div class="box-content">
+                    <div class="content-top"></div>
+                    <div class="content-bottom">
+                        <h3 class="box-title">DABubble</h3>
+                        <p class="box-text">{{ isEnglish ? 
+                            'This App is a Slack Clone App. It revolutionizes team communication and collaboration with its intuitive interface, real-time messaging, and robust channel organization.' : 
+                            'Diese App ist ein Slack-Klon. Sie revolutioniert die Teamkommunikation und -zusammenarbeit mit ihrer intuitiven Oberfläche, Echtzeitnachrichten und einer robusten Kanalorganisation.' }}
+                        </p>
+                        <div class="box-links">
+                            <p>Angular</p>
+                            <p>TypeScript</p>
+                            <p>Firebase</p>
+                        </div>
+                    </div>
+                </div>
+            </div> -->
+
+            <div class="box box4">
+                <div class="box-buttons">
+                    <a href="https://github.com/Marc-Braun-72/Pokedex" target="_blank">
+                        <button id="primary-btn" class="secundary ripple-button" (click)="addRippleEffect($event)">Github</button>
+                    </a>                
+                    <a href="https://marc-braun.com/" target="_blank">
+                        <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                            {{ isEnglish ? 'Live test' : 'Live-Test' }}
+                        </button>
+                    </a>
+                    
+                </div>
+                <div class="box-content">
+                    <div class="content-top"></div>
+                    <div class="content-bottom">
+                        <h3 class="box-title">Pokédex</h3>
+                        <p class="box-text">{{ isEnglish ? 
+                            'Based on the PokéAPI a simple library that provides and catalogues pokémon information.' : 
+                            'Basierend auf der PokéAPI, einer einfachen Bibliothek, die Pokémon-Informationen bereitstellt und katalogisiert.' }}
+                        </p>
+                        <div class="box-links">
+                            <p>JavaScript</p>
+                            <p>HTML</p>
+                            <p>CSS</p>
+                            <p>API</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+</section>

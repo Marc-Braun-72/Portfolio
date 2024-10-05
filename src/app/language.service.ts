@@ -5,7 +5,7 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class LanguageService {
-  private language = new BehaviorSubject<string>('de'); // Standardmäßig Deutsch
+  private language = new BehaviorSubject<string>(this.getSavedLanguage() || 'en');
 
   getCurrentLanguage() {
     return this.language.asObservable();
@@ -13,5 +13,10 @@ export class LanguageService {
 
   changeLanguage(lang: string) {
     this.language.next(lang);
+    localStorage.setItem('language', lang);
+  }
+
+  private getSavedLanguage(): string | null {
+    return localStorage.getItem('language'); 
   }
 }

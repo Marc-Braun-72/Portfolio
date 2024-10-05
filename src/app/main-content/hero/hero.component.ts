@@ -1,13 +1,28 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { LanguageService } from './../../../app/language.service'; 
 
 @Component({
   selector: 'app-hero',
   standalone: true,
   imports: [],
   templateUrl: './hero.component.html',
-  styleUrl: './hero.component.scss'
+  styleUrls: ['./hero.component.scss'] 
 })
-export class HeroComponent {
+export class HeroComponent implements OnInit {
+  isEnglish = true;
+
+  constructor(private languageService: LanguageService) {}
+
+  ngOnInit() {
+    this.languageService.getCurrentLanguage().subscribe(lang => {
+      this.isEnglish = lang === 'en';
+    });
+  }
+
+  onLanguageChange() {
+    this.isEnglish = !this.isEnglish;
+    this.languageService.changeLanguage(this.isEnglish ? 'en' : 'de');
+  }
 
   addRippleEffect(event: MouseEvent) {
     const button = event.currentTarget as HTMLElement; 

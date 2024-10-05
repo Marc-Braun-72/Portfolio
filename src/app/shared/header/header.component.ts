@@ -1,5 +1,5 @@
 import { Component, OnInit, HostListener } from '@angular/core';
-import { LanguageService } from './../../../app/language.servise'; // Pfad anpassen
+import { LanguageService } from '../../language.service'; 
 
 @Component({
   selector: 'app-header',
@@ -8,7 +8,13 @@ import { LanguageService } from './../../../app/language.servise'; // Pfad anpas
   standalone: true,
 })
 export class HeaderComponent implements OnInit {
-  isEnglish = false;
+  isEnglish = true;
+
+  menuOpen = false;
+
+  toggleMenu() {
+      this.menuOpen = !this.menuOpen;
+  }
 
   constructor(private languageService: LanguageService) {}
 

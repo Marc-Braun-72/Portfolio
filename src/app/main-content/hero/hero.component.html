@@ -5,26 +5,30 @@
     <div class="farbklecks-right"></div>
     <div class="hero">
         <div class="hero_content">
-            <div class="vertical">I am</div>
+            <div class="vertical">{{ isEnglish ? 'I am' : '' }}</div>
             <div class="flex">
                 <div class="horizontal-name">Marc Braun</div>
-                <div class="horizontal-title">FRONTEND DEVELOPER</div>
+                <div class="horizontal-title">{{ isEnglish ? 'FRONTEND DEVELOPER' : 'FRONTEND-ENTWICKLER' }}</div>
             </div>
         </div>
         <a href="#contact">
-            <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">Let's talk!</button>
+            <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                {{ isEnglish ? "Let's talk!" : 'Reden wir!' }}
+            </button>
         </a>
     </div>
 
     <a href="#about" class="rotated-text-link">
         <div class="rotated-text-container">
-            <p class="rotated-text">Scroll down</p>
+            <p class="rotated-text">{{ isEnglish ? 'Scroll down' : 'Scrollen' }}</p>
             <div class="arrow-down">
                 <div class="arrow-line"></div> 
                 <div class="arrow-tip"></div>  
             </div>
         </div>
     </a>
+
+
 
     <div class="icon-row">
         <div class="green-line"></div>

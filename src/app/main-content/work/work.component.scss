@@ -1,138 +1,285 @@
 
-
-// Importiere globale Variablen
 @import './../../../styles.scss';
 
-* {
-    box-sizing: border-box;
-}
-
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-}
-
 .portfolio {
-    text-align: center;
+    max-width: 1440px;
     padding: 20px;
     background-color: $background-dark;
     position: relative;
-}
 
-.portfolio-container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    max-width: 1240px;
-    margin: 0 auto;
+    .portfolio-header {
+        margin-bottom: 26px;
+    }
 
+    .farbklecks-right,
+    .farbklecks-left {
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        overflow: hidden;
+        filter: blur(30px);
+        z-index: 1;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .farbklecks-right {
+        right: -150px;
+        background-image: url('./../../../assets/images/shadows/blue_shadow_2.svg');
+    }
+
+    .farbklecks-left {
+        bottom: 0;
+        left: -250px;
+        background-image: url('./../../../assets/images/shadows/green_shadow_skills_and_portfolio_section.svg');
+    }
+
+    .flex {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        position: relative;
+
+        h2 {
+            margin-bottom: 0;
+        }
+
+        .portfolio-line {
+            width: 80px;
+            height: 4px;
+            background-color: $purple;
+            position: absolute;
+            left: -88px;
+        }
+    }
+
+    .portfolio-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        max-width: 1240px;
+        margin: 20px auto 0;
+        justify-content: space-between; 
+    }
 }
 
 .box {
-    width: 600px;
-    height: 600px;
-    margin: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: $white;
-    font-size: 24px;
-    font-weight: bold;
+    aspect-ratio: 1 / 1; 
+    width: 45%; 
+    max-width: 45%;
+    position: relative;
+    overflow: hidden;
     border: 1px solid $green;
     border-radius: 15px;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    position: relative;
-    z-index: 1;
-    flex-wrap: wrap;
     background-color: $background-dark;
+    z-index: 3;
 
-    &:before {
-        content: "";
+    &::before {
+        content: '';
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
-        z-index: -1;
-        // border-radius: 15px;
+        background-size: cover;
+        background-position: center;
+        transition: transform 0.3s ease;
+        z-index: 1;
     }
 
-    // Hintergrundbilder für jede Box
-    &:nth-child(1) {
-        background-image: url('./../../../assets/images/work/el_pollo_loco.svg');
+    &:hover::before {
+        transform: scale(2);
     }
 
-    &:nth-child(2) {
-        background-image: url('./../../../assets/images/work/join.svg');
+    @for $i from 1 through 4 {
+        &.box#{$i}::before {
+            background-image: url('./../../../assets/images/work/#{nth(("el_pollo_loco", "join", "da_bubble", "pokedex"), $i)}.svg');
+        }
     }
 
-    &:nth-child(3) {
-        background-image: url('./../../../assets/images/work/da_bubble.svg');
+    .box-content {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        z-index: 2;
+        transition: transform 0.3s ease;
+        transform: translateY(60%);
+        background-color: rgba(34, 34, 34, 0.7); 
+        opacity: 0; 
+        transition: transform 0.3s ease, opacity 0.3s ease;
+
+        &::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60%;
+            background-color: #ffffff;
+            border-top-left-radius: 30px;
+            border-top-right-radius: 30px;
+        }
+
+        .content-bottom {
+            height: 60%;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: relative;
+            z-index: 1;
+        }
+
+        .box-title {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 38.4px;
+            color: $purple;
+            margin: 10px;
+        }
+
+        .box-text {
+            text-align: center;
+            font-size: 23px;
+            font-weight: 400;
+            line-height: 27.6px;
+            color: $black;
+            margin-bottom: 10px;
+        }
+
+        .box-links {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            color: $green;
+            margin-bottom: 30px;
+
+            a {
+                color: $green;
+                text-decoration: none;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+        }
     }
 
-    &:nth-child(4) {
-        background-image: url('./../../../assets/images/work/pokedex.svg');
+    .box-buttons {
+        position: absolute;
+        top: 10px;
+        left: 50%; 
+        transform: translateX(-50%); 
+        display: flex;
+        gap: 50px; 
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 4;
+        width: 375px;
+        height: 58px;
+    }
+    
+
+    &:hover {
+        .box-content {
+            transform: translateY(0);
+            opacity: 1;
+        }
+
+        .box-buttons {
+            opacity: 1;
+        }
     }
 }
 
-.farbklecks-right {
-    position: absolute;
-    /* top: 170px; */
-    width: 500px;
-    height: 500px;
-    overflow: hidden;
-    filter: blur(30px);
-    z-index: 1;
-    right: -150px; 
-    background-image: url('./../../../assets/images/shadows/blue_shadow_2.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
+.box-links {
+    text-align: center; 
 }
 
-.farbklecks-left {
-    position: absolute;
-    bottom: 0;
-    width: 500px; 
-    height: 500px;
-    overflow: hidden;
-    filter: blur(30px); 
-    z-index: 1;
-    left: -250px; 
-    background-image: url('./../../../assets/images/shadows/green_shadow_skills_and_portfolio_section.svg');
-    background-size: cover;
-    background-repeat: no-repeat;
-
+.box-links p {
+    display: inline-block; 
+    margin: 0; 
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
 }
 
-
-
-h2 {
-    margin-bottom: 0;
+.box-links p:not(:last-child)::after {
+    content: "|"; 
+    margin-left: 10px; 
+    margin-right: 10px; 
 }
 
-.portfolio-line {
-    width: 50px;
-    height: 4px;
-    background-color: green;
-    margin: 0 auto 20px auto;
-}
+#primary-btn {
+    margin-top: 80px;
+  }
+  
+  button {
+    &.primary {
+      background-color: $purple;
+      color: $white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 27.6px;
+      width: 165px;
+      height: 58px;
+      border-radius: 10px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  
+      &:hover {
+        transform: scale(1.1);
+        background-color: $green;
+      }
+    }
+  
+    &.secundary {
+      background-color: transparent;
+      color: $white;
+      border: 1px solid $indigo;
+      padding: 12px 24px;
+      font-size: 23px;
+      font-weight: 400;
+      line-height: 27.6px;
+      width: 165px;
+      height: 58px;
+      border-radius: 10px;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: box-shadow 0.3s ease;
+      box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  
+      &:hover {
+        transform: scale(1.1);
+        background-color: $indigo;
+      }
+    }
+  }
+  
 
 @media (max-width: 1300px) {
     .portfolio-container {
         max-width: 100%;
     }
-    
-    .box {
-        width: calc(50% - 20px);
-        margin: 10px;
-    }
 }
 
 @media (max-width: 768px) {
     .box {
-        width: calc(100% - 20px); 
-        margin: 10px;
+        width: calc(100% - 20px);
     }
 }

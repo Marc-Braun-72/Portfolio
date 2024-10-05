@@ -21,7 +21,6 @@ section#skills {
     align-items: flex-start;
     justify-content: space-between;
     width: 100%;
-    padding: 30px 70px 0 70px;
     margin-top: -550px;
     z-index: 22;
 }
@@ -66,9 +65,6 @@ section#skills {
     text-align: center;
 }
 
-
-/* Icon Animation 
-**********************************************************/
 .icon {
     width: 60px; 
     height: 60px;
@@ -86,22 +82,31 @@ section#skills {
     transition: transform 1.0s ease-in; 
 }
 
-/* Standardmäßig verstecke das kleine Bild */
 .icon-item .small-image {
-    display: none;
-    transform: translateX(-50%);
+    opacity: 0;
+    transform: scale(0.8); 
     width: 150px;
     height: auto;
     position: absolute;
-    left: 140px;
+    left: 60px;
     bottom: 250px;
     z-index: 500;
-    transition: transform 0.5s ease-out, box-shadow 0.3s ease-out; 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+    visibility: hidden;
 }
 
 .icon-item:hover .small-image {
-    display: block; 
-    transition: transform 0.5s ease-out, box-shadow 0.3s ease-out; 
+    opacity: 1;
+    visibility: visible;
+    transform: scale(1.1);
+    animation: pulse 1s ease infinite;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
 }
 
 .icon-11 {
@@ -126,8 +131,6 @@ section#skills {
     }
 }
 
-/* Icon Label
-**********************************************************/
 .icon-label {
     font-size: 16px;
     font-weight: 700;
@@ -188,7 +191,7 @@ h2 {
 .wave-container {
     position: relative;
     width: 100%;
-    height: 150px; /* Anpassen nach Bedarf */
+    height: 150px; 
     overflow: hidden;
   }
   

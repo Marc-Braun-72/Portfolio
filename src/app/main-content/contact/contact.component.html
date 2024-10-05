@@ -1,60 +1,74 @@
 <div class="contact-header">
     <div class="invisible"></div>
-    <h2>Kontakt</h2>
+    <h2>{{ isEnglish ? 'Contact' : 'Kontakt' }}</h2>
     <div class="line"></div>
 </div>
+
 <section class="contact">
     <div class="contact-container">
         <div class="farbklecks-right"></div>
 
         <div class="contact-text">
             <div class="line_left"></div>
-            <h3>Got a problem to solve?</h3>
-            <p>Contact me through this form, I am interested in hearing from you, knowing your ideas and contributing to your projects with my work.</p>
-            <p class="margin-top">Need a Frontend developer? <span>Contact me!</span></p>
+            <h3>{{ isEnglish ? 'Got a problem to solve?' : 'Hast du ein Problem zu lösen?' }}</h3>
+            <p>{{ isEnglish ? 
+                'Contact me through this form, I am interested in hearing from you, knowing your ideas and contributing to your projects with my work.' : 
+                'Kontaktiere mich über dieses Formular. Ich bin interessiert daran, von dir zu hören, deine Ideen kennenzulernen und mit meiner Arbeit zu deinen Projekten beizutragen.' }}</p>
+            <p class="margin-top">{{ isEnglish ? 
+                'Need a Frontend developer? ' : 
+                'Brauchst du einen Frontend-Entwickler? ' }}
+                <span>{{ isEnglish ? 'Contact me!' : 'Kontaktiere mich!' }}</span></p>
         </div>
 
         <div class="contact-form">
             <form id="contactForm" (ngSubmit)="onSubmit()" [formGroup]="contactForm" novalidate>
                 <!-- Honeypot Input (unsichtbar) -->
                 <div class="form-group honeypot">
-                    <input type="text" id="honeypot" formControlName="honeypot" placeholder="Your name" />
+                    <input type="text" id="honeypot" formControlName="honeypot" placeholder="{{ isEnglish ? 'Your name' : 'Dein Name' }}" />
                 </div>
         
                 <div class="form-group">
                     <label for="name"></label>
-                    <input type="text" id="name" formControlName="name" placeholder="Your name" />
+                    <input type="text" id="name" formControlName="name" placeholder="{{ isEnglish ? 'Your name' : 'Dein Name' }}" />
                     <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="error">
-                        Name is required.
+                        {{ isEnglish ? 'Name is required.' : 'Name ist erforderlich.' }}
                     </div>
                 </div>
         
                 <div class="form-group">
                     <label for="email"></label>
-                    <input type="email" id="email" formControlName="email" placeholder="Your email" />
+                    <input type="email" id="email" formControlName="email" placeholder="{{ isEnglish ? 'Your email' : 'Deine E-Mail' }}" />
                     <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="error">
-                        Valid email is required.
+                        {{ isEnglish ? 'Valid email is required.' : 'Eine gültige E-Mail ist erforderlich.' }}
                     </div>
                 </div>
         
                 <div class="form-group">
                     <label for="message"></label>
-                    <textarea id="message" formControlName="message" placeholder="Your message"></textarea>
+                    <textarea id="message" formControlName="message" placeholder="{{ isEnglish ? 'Your message' : 'Deine Nachricht' }}"></textarea>
                     <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="error">
-                        Message is required.
+                        {{ isEnglish ? 'Message is required.' : 'Nachricht ist erforderlich.' }}
                     </div>
                 </div>
-        
+
                 <div class="form-group checkbox-group">
                     <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy" />
-                    <label for="privacyPolicy">I've read the <span><a href="/privacy-policy" (click)="openPrivacyPolicy($event)">privacy policy</a></span> and agree to the processing of my data as outlined.</label>
+                    <label for="privacyPolicy">
+                        {{ isEnglish ? "I've read the" : 'Ich habe die' }}
+                        <span>
+                            <a [routerLink]="'/privacy-policy'">
+                                {{ isEnglish ? 'privacy policy' : 'Datenschutzerklärung' }}
+                            </a>
+                        </span>
+                        {{ isEnglish ? 'and agree to the processing of my data as outlined.' : 'gelesen und stimme der Verarbeitung meiner Daten gemäß den Bestimmungen zu.' }}
+                    </label>
                     <div *ngIf="contactForm.get('privacyPolicy')?.touched && contactForm.get('privacyPolicy')?.invalid" class="error">
-                        You must agree to the privacy policy.
+                        {{ isEnglish ? 'You must agree to the privacy policy.' : 'Du musst der Datenschutzerklärung zustimmen.' }}
                     </div>
-                </div>
+                </div>                
         
                 <button type="submit" [disabled]="!contactForm.valid || contactForm.get('honeypot')?.value" class="submit-btn">
-                    Send message :)
+                    {{ isEnglish ? 'Send message :)' : 'Nachricht senden :)' }}
                 </button>
             </form>
         </div>

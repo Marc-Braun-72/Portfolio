@@ -1,4 +1,4 @@
-<header>
+<header id="top">
     <div class="container">
         <div class="header_content">
             <div class="header_logo">
@@ -11,19 +11,27 @@
                     </h1>
                 </a>
             </div>
-            <div class="header_menu">
+
+            <div class="hamburger-icon" (click)="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+
+            <div class="header_menu" [class.menu-open]="menuOpen">
                 <ul>
+                    <li><a href="#about">{{ isEnglish ? 'About me' : 'Über mich' }}</a></li>
+                    <li><a href="#skills">{{ isEnglish ? 'Skills' : 'Kenntnisse' }}</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">{{ isEnglish ? 'Contact' : 'Kontakt' }}</a></li>
+                    <li></li>
                     <li>
                         <label class="switch">
-                            <input type="checkbox" [checked]="isEnglish" (change)="onLanguageChange()">
+                            <input type="checkbox" checked [checked]="isEnglish" (change)="onLanguageChange()">
                             <span class="slider"></span>
                             <span class="lang-text">{{ isEnglish ? 'EN' : 'DE' }}</span>
                         </label>
                     </li>
-                    <li><a href="#about">{{ isEnglish ? 'About me' : 'Über mich' }}</a></li>
-                    <li><a href="#skills">{{ isEnglish ? 'Skills' : 'Fähigkeiten' }}</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">{{ isEnglish ? 'Contact' : 'Kontakt' }}</a></li>
                 </ul>
             </div>
         </div>
