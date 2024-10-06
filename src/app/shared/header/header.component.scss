@@ -84,7 +84,7 @@ header {
     cursor: pointer;
 
     input {
-      display: none; // Versteckt das Checkbox-Element
+      display: none; 
     }
 
     .slider {
@@ -117,8 +117,8 @@ header {
     }
 
     .lang-text {
-      margin-left: 10px; // Abstand zwischen Switch und Text
-      font-size: 16px; // Schriftgröße
+      margin-left: 10px; 
+      font-size: 16px; 
     }
 
     .slider:hover {
@@ -194,7 +194,7 @@ header {
     flex-direction: row-reverse;
   }
 
-  @media (max-width: 790px) {
+  @media (max-width: 860px) {
     .header_content {
       flex-direction: row;
       justify-content: space-between;
@@ -246,6 +246,37 @@ header {
       }
     }
   }
+}
+
+@media (max-width: 860px) {
+.slider {
+    width: 40px !important; 
+    height: 20px !important;
+    background-color: #ccc;
+    border-radius: 30px;
+    position: relative;
+    transition: background-color 0.4s ease;
+    
+    &::before {
+        content: "";
+        position: absolute;
+        height: 16px !important; 
+        width: 16px !important;  
+        left: 2px;
+        bottom: 2px;
+        background-color: white;
+        border-radius: 50%;
+        transition: transform 0.4s ease;
+    }
+    }
+    
+    input:checked + .slider {
+    background-color: #70E61C;
+    
+    &::before {
+        transform: translateX(20px) !important; 
+    }
+    }
 }
 
 @media (max-width: 390px) {

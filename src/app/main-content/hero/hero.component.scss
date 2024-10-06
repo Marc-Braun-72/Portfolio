@@ -46,25 +46,25 @@
     .vertical {
         writing-mode: vertical-rl;
         transform: rotate(180deg);
-        font-size: 90px;
-        line-height: 108px;
+        font-size: clamp(32px, 6vw, 90px);
+        line-height: clamp(54px, 7vw, 108px);
         font-weight: 400;
         margin-top: 12px;
     }
 
     .horizontal-name {
         color: $white;
-        font-size: 128px;
+        font-size: clamp(45px, 8vw, 128px); 
         font-weight: 700;
-        line-height: 153.6px;
+        line-height: clamp(54px, 9vw, 153.6px);
         margin: 0;
     }
 
     .horizontal-title {
         color: $purple;
-        font-size: 64px;
+        font-size: clamp(25px, 5vw, 64px); 
         font-weight: 400;
-        line-height: 76.8px;
+        line-height: clamp(36px, 6vw, 76.8px);
         margin: 0;
     }
 }
@@ -221,3 +221,37 @@ a {
     transform: scale(1.2); 
 }
 
+@media (max-width: 1100px) {
+    .vertical {
+        margin-top: 0 !important;
+    }
+}
+
+@media (max-width: 750px) {
+    .farbklecks-left {
+        top: 260px;
+        width: 300px;
+        height: 300px;
+        filter: blur(10px);
+        left: -120px;
+    }
+    .farbklecks-right {
+        right: -180px;
+        top: 380px;
+        width: 300px;
+        height: 300px;
+        filter: blur(30px);
+    }
+}
+
+@media (max-width: 450px) {
+    .rotated-text-container {
+        display: none;
+    }
+}
+
+@media (max-width: 380px) {
+    .vertical {
+        display: none;
+    }
+}

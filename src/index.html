@@ -7,38 +7,37 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <!-- favicon-->
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon//favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon//favicon-16x16.png">
+  <link rel="manifest" href="assets/favicon//site.webmanifest">
+  <link rel="icon" type="image/x-icon" href="assets/favicon/favicon.ico">
 
   <!-- styles -->
   <link rel="stylesheet" href="assets/fonts/poppins/poppins.css">
 
   <!-- sticky header fix -->
   <script>
-function scrollToId() {
-  const navHeight = 109;
-  const targetId = window.location.hash.substring(1); // Hash ohne #
-  
-  if (targetId) {
-    const targetElement = document.getElementById(targetId);
-    
-    if (targetElement) {
-      const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+    function scrollToId() {
+      const navHeight = 109;
+      const targetId = window.location.hash.substring(1); 
       
-      // Log zur Fehlersuche
-      console.log(`Scrolling to: ${targetId}, Position: ${targetPosition}`);
-      
-      window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+      if (targetId) {
+        const targetElement = document.getElementById(targetId);
+        
+        if (targetElement) {
+          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+        }
+      }
     }
-  }
-}
 
-window.addEventListener('hashchange', scrollToId);
-window.addEventListener('DOMContentLoaded', () => {
-  if (window.location.hash) {
-    scrollToId();
-  }
-});
-
+    window.addEventListener('hashchange', scrollToId);
+    window.addEventListener('DOMContentLoaded', () => {
+      if (window.location.hash) {
+        scrollToId();
+      }
+    });
   </script>
   
 
