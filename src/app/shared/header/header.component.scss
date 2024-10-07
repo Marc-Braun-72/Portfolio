@@ -277,10 +277,16 @@ header {
         transform: translateX(20px) !important; 
     }
     }
+    .header_menu .switch {
+        display: none;
+    }
 }
 
 @media (max-width: 390px) {
   header {
     padding: 0;
+  }
+  h1.logo_name {
+    font-size: 32px !important;
   }
 }

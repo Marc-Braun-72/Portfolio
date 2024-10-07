@@ -12,7 +12,7 @@
           <span class="accent-green">&gt;</span>
         </h1>
     </a>
-    <a class="imprint" routerLink="/imprint">Legal Notice</a>
+    <a class="imprint" routerLink="/imprint">{{ isEnglish ? 'Legal Notice' : 'Impressum' }}</a>
   </div>
   <p class="footer_name">&copy; Marc Braun {{ currentYear }}</p>
 

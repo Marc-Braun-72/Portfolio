@@ -14,14 +14,12 @@ export class SkillsComponent implements OnInit {
   constructor(private languageService: LanguageService) {}
 
   ngOnInit() {
-    // Holt die aktuelle Sprache aus dem LanguageService
     this.languageService.getCurrentLanguage().subscribe(lang => {
       this.isEnglish = lang === 'en';
     });
   }
 
   onLanguageChange() {
-    // Wechselt die Sprache und aktualisiert die Anzeige
     this.isEnglish = !this.isEnglish;
     this.languageService.changeLanguage(this.isEnglish ? 'en' : 'de');
   }

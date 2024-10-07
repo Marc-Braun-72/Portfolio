@@ -75,9 +75,11 @@
                     'Feel free to contact me. I look forward to expanding on my previous knowledge.' : 
                     'Zögere nicht, mich zu kontaktieren. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.' }}
                 </p>
-                <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
-                    {{ isEnglish ? 'Get in touch' : 'Kontakt aufnehmen' }}
-                </button>
+                <a href="#contact">
+                    <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                        {{ isEnglish ? 'Get in touch' : 'Kontakt aufnehmen' }}
+                    </button>
+                </a>
             </div>
         </div>
     </div>

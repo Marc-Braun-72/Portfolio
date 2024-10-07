@@ -29,10 +29,10 @@
             </div>
             <div class="header_menu" [class.menu-open]="menuOpen">
                 <ul>
-                    <li><a href="#about">{{ isEnglish ? 'About me' : 'Über mich' }}</a></li>
-                    <li><a href="#skills">{{ isEnglish ? 'Skills' : 'Kenntnisse' }}</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">{{ isEnglish ? 'Contact' : 'Kontakt' }}</a></li>
+                    <li><a href="#about" (click)="closeMenu()">{{ isEnglish ? 'About me' : 'Über mich' }}</a></li>
+                    <li><a href="#skills" (click)="closeMenu()">{{ isEnglish ? 'Skills' : 'Kenntnisse' }}</a></li>
+                    <li><a href="#portfolio" (click)="closeMenu()">Portfolio</a></li>
+                    <li><a href="#contact" (click)="closeMenu()">{{ isEnglish ? 'Contact' : 'Kontakt' }}</a></li>                    
                     <li></li>
                     <li>
                         <label class="switch">

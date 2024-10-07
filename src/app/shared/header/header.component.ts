@@ -15,6 +15,19 @@ export class HeaderComponent implements OnInit {
   toggleMenu() {
       this.menuOpen = !this.menuOpen;
   }
+  closeMenu() {
+    this.menuOpen = false;
+  }
+  
+
+  @HostListener('document:click', ['$event'])
+onDocumentClick(event: MouseEvent) {
+  const clickedInside = (event.target as HTMLElement).closest('.header_content');
+  if (!clickedInside && this.menuOpen) {
+    this.menuOpen = false;
+  }
+}
+
 
   constructor(private languageService: LanguageService) {}
 
