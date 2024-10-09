@@ -1,13 +1,15 @@
-
-
 // Importiere globale Variablen
 @import './../../../styles.scss';
-
 
 .contact {
     margin: 50px 70px;
     padding: 20px;
     background-color: $background-dark;
+
+    @media screen and (max-width: 996px) {
+        margin: 20px;
+        padding: 10px;
+    }
 }
 
 .contact-header {
@@ -17,17 +19,20 @@
     margin-bottom: 30px;
     width: 100%;
     align-items: center;
-    align-content: center;
-    flex-wrap: wrap;
     justify-content: space-between;
     background-color: $background-dark;
 
     h2 {
-        display: inline-block; 
+        display: inline-block;
         position: relative;
-        font-size: 2.5rem;
-        margin: 0;
-        padding-right: 20px; 
+        font-size: clamp(45px, 6vw, 90px);
+        line-height: clamp(54px, 7vw, 108px);
+        margin-right: 20px;
+
+        @media screen and (max-width: 996px) {
+            font-size: 32px;
+            line-height: 38px;
+        }
     }
 
     .line {
@@ -44,12 +49,31 @@
     }
 }
 
+h3 {
+    font-size: clamp(23px, 6vw, 32px);
+    line-height: clamp(28px, 7vw, 38px);
+    font-weight: 700;
+    margin: 30px 0;
+
+    @media screen and (max-width: 996px) {
+        font-size: 24px;
+        line-height: 28px;
+        margin: 20px 0;
+    }
+}
+
 .contact-container {
     display: flex;
+    flex-direction: row; // Nebeneinander auf großen Bildschirmen
     justify-content: space-between;
     align-items: flex-start;
     gap: 40px;
     position: relative;
+
+    @media screen and (max-width: 996px) {
+        flex-direction: column; // Untereinander auf kleineren Bildschirmen
+        align-items: center;
+    }
 }
 
 .farbklecks-right {
@@ -60,23 +84,47 @@
     overflow: hidden;
     filter: blur(10px);
     z-index: 1;
-    right: -150px; 
+    right: -150px;
     background-image: url('./../../../assets/images/shadows/purple_shadow_footer_v2.svg');
     background-size: cover;
     background-repeat: no-repeat;
+
+    @media screen and (max-width: 996px) {
+        width: 500px;
+        height: 500px;
+        top: 0;
+        right: 10px;
+    }
+    @media screen and (max-width: 780px) {
+        right: -180px;
+    }
+    @media screen and (max-width: 450px) {
+        right: -280px;
+        top: 100px;
+    }
 }
 
 .contact-text {
-    width: 40%;
+    width: 40%; 
     font-size: 1.2rem;
     line-height: 1.5;
+
+    @media screen and (max-width: 996px) {
+        width: 100%; 
+        text-align: center;
+    }
 }
 
 .contact-form {
+    width: 55%; 
     padding: 20px;
     border-radius: 10px;
     max-width: 640px;
     z-index: 2;
+
+    @media screen and (max-width: 996px) {
+        width: 100%; 
+    }
 }
 
 .honeypot {
@@ -92,51 +140,116 @@
         margin-bottom: 5px;
     }
 
-    input:not([type="checkbox"]), textarea {
-        width: 100%;
-        padding: 18px;
-        background-color: $background-dark; 
-        border: 1px solid $purple;
-        border-radius: 10px;
-        color: $white;
-        outline: none;
-        transition: border-color 0.3s ease;
-
-        &:hover, &:focus {
-            border-color: #1CDAE6; 
-        }
-
-        &::placeholder {
-            color: $white; 
-            font-size: 16px;
-            line-height: 19.2px;
-            font-weight: 400;
-        }
+    .input-container {
+        position: relative;
     }
 
-    textarea {
-        height: 150px; 
+    .checkbox-container {
+        display: flex;
+        align-items: center;
+        position: relative;
     }
 }
 
+.input-container input:not([type="checkbox"]),
+.input-container textarea {
+    width: 100%;
+    padding: 18px;
+    background-color: $background-dark !important;
+    border: 1px solid $purple;
+    border-radius: 10px;
+    color: $white;
+    outline: none;
+    transition: border-color 0.3s ease;
+    position: relative;
+
+    &:hover, &:focus {
+        border-color: #1CDAE6;
+    }
+
+    &::placeholder {
+        color: $white;
+        font-size: 16px;
+        line-height: 19.2px;
+        font-weight: 400;
+    }
+
+    @media screen and (max-width: 996px) {
+        font-size: 14px;
+        padding: 15px;
+    }
+}
+
+input.valid, textarea.valid {
+    border-color: $green;
+}
+
+input.invalid, textarea.invalid {
+    border-color: $red;
+}
+
+/* Symbole für Eingabefelder */
+input.valid::after, textarea.valid::after,
+input.invalid::after, textarea.invalid::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+input.valid::after, textarea.valid::after {
+    background-image: url('./../../../assets/images/contact_green.svg'); // Pfad zum grünen Häkchen
+}
+
+input.invalid::after, textarea.invalid::after {
+    background-image: url('./../../../assets/images/contact_red.svg'); // Pfad zum roten Ausrufezeichen
+}
+
+@media screen and (max-width: 480px) {
+    input.valid::after, textarea.valid::after,
+    input.invalid::after, textarea.invalid::after {
+        top: 50%;
+        right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+}
 
 /* Fehlermeldungen */
 .error {
-    color: red;
+    color: $red;
     font-size: 0.9rem;
     margin-top: 5px;
 }
 
+/* Checkbox-Gruppe */
 .checkbox-group {
     display: flex;
     align-items: center;
+    flex-wrap: nowrap;
 }
+
+.checkbox-group label {
+    flex-grow: 1;
+}
+
+/* Checkbox-Stile */
 input[type="checkbox"] {
-    appearance: none !important; 
-    -webkit-appearance: none !important; 
-    width: 20px !important;
-    height: 20px !important;
-    border: 2px solid $green !important;
+    appearance: none !important;
+    -webkit-appearance: none !important;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    max-width: 20px;
+    max-height: 20px;
+    flex-shrink: 0;
+    border: 2px solid $green;
     border-radius: 3px;
     position: relative;
     outline: none;
@@ -147,11 +260,11 @@ input[type="checkbox"] {
     margin-right: 16px;
 
     &:checked {
-        background-color: $green !important; 
+        background-color: $green;
     }
 
     &:checked::after {
-        content: ''; 
+        content: '';
         position: absolute;
         top: 2px;
         left: 5px;
@@ -163,25 +276,220 @@ input[type="checkbox"] {
     }
 
     &:hover {
-        border-color: #1CDAE6 !important; 
+        border-color: #1CDAE6;
     }
 }
 
-.submit-btn {
-    background-color: grey;
-    border: none;
+/* Validierungsstile für Checkbox */
+input[type="checkbox"].valid {
+    border-color: $green;
+}
+
+input[type="checkbox"].invalid {
+    border-color: $red;
+}
+
+/* Input-Wrapper */
+.input-wrapper {
+    position: relative;
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 18px;
+        background-color: $background-dark !important;
+        background-color: $background-dark;
+        border: 1px solid $purple;
+        border-radius: 10px;
+        color: $white;
+        outline: none;
+        transition: border-color 0.3s ease;
+
+        &:hover,
+        &:focus {
+            border-color: #1CDAE6;
+        }
+
+        &::placeholder {
+            color: $white;
+            font-size: 16px;
+            line-height: 19.2px;
+            font-weight: 400;
+        }
+    }
+
+    &.valid input,
+    &.valid textarea {
+        border-color: $green;
+    }
+
+    &.invalid input,
+    &.invalid textarea {
+        border-color: $red;
+    }
+
+    &.valid::after,
+    &.invalid::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        right: 15px;
+        transform: translateY(-50%);
+        width: 20px;
+        height: 20px;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+
+    &.valid::after {
+        background-image: url('/assets/images/contact_green.svg');
+    }
+
+    &.invalid::after {
+        background-image: url('/assets/images/contact_red.svg');
+    }
+}
+
+input:-internal-autofill-selected {
+    background-color: unset !important;
+}
+
+.form-group .input-container .input-wrapper input[type="text"] {
+    background-color: $background-dark !important;
+}
+
+input:-webkit-autofill,
+textarea:-webkit-autofill {
+    background-color: $background-dark !important;
+    color: $white !important;
+    -webkit-box-shadow: 0 0 0 1000px $background-dark inset !important;
+    -webkit-text-fill-color: $white !important;
+}
+
+@media screen and (max-width: 480px) {
+    .input-wrapper .valid::after,
+    .input-wrapper .invalid::after {
+        right: 10px;
+        width: 18px;
+        height: 18px;
+    }
+}
+
+/* Symbole für Checkbox */
+input[type="checkbox"].valid::after,
+input[type="checkbox"].invalid::after {
+    content: '';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+input[type="checkbox"].valid::after {
+    background-image: url('./../../../assets/images/contact_green.svg'); // Pfad zum grünen Häkchen
+}
+
+input[type="checkbox"].invalid::after {
+    background-image: url('./../../../assets/images/contact_red.svg'); // Pfad zum roten Ausrufezeichen
+}
+
+.input-container input.valid, .input-container textarea.valid {
+    border-color: $green !important;
+}
+
+.input-container input.invalid, .input-container textarea.invalid {
+    border-color: $red !important;
+}
+
+
+/* Button-Stile */
+.primary {
+    background-color: $green;
     color: $white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: not-allowed;
-    transition: background-color 0.3s ease;
+    border: none;
+    padding: 12px 24px;
+    font-size: 23px;
+    font-weight: 400;
+    line-height: 27.6px;
+    width: 225px !important;
+    height: 58px;
+    border-radius: 10px;
+    cursor: pointer;
+    overflow: hidden;
+    position: relative;
+    transition: box-shadow 0.3s ease;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
 
-    &:not(:disabled) {
-        background-color: $green; 
-        cursor: pointer;
+    &:disabled {
+        background-color: grey;
+        cursor: not-allowed;
+    }
+
+    &:hover:not(:disabled) {
+        background-color: darken($green, 10%);
+    }
+
+    @media screen and (max-width: 996px) {
+        width: 100%;
     }
 }
 
+/* Ripple-Effekt */
+.ripple-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.ripple-button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    background-color: rgba(255, 255, 255, 0.5);
+    animation: ripple-effect 600ms linear;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+#primary-btn {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 480px) {
+    input[type="checkbox"] {
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+        min-height: 18px;
+        max-width: 18px;
+        max-height: 18px;
+    }
+
+    input[type="checkbox"]::after {
+        top: 2px;
+        left: 4px;
+        width: 5px;
+        height: 9px;
+    }
+}
+
+/* Anpassung der Schriftgrößen für Paragraphen */
+p {
+    font-size: 1.2rem;
+
+    @media screen and (max-width: 996px) {
+        font-size: 1rem;
+    }
+}
+
+/* Links in Labels */
 a.span {
     color: $purple;
     text-decoration: none;
@@ -196,7 +504,6 @@ label {
     font-size: 14px;
     font-weight: 400;
     line-height: 16.8px;
-
 }
 
 span a {
@@ -213,5 +520,74 @@ span a {
     }
 }
 
+/* Zusätzliche Anpassungen für kleinere Bildschirme */
+@media screen and (max-width: 996px) {
+    .contact {
+        margin: 20px;
+        padding: 10px;
+    }
+
+    .contact-header h2 {
+        font-size: 32px;
+        line-height: 38px;
+    }
 
 
+    h3 {
+        font-size: 24px;
+        line-height: 28px;
+        margin: 20px 0;
+    }
+
+    .contact-container {
+        flex-direction: column; // Untereinander auf kleineren Bildschirmen
+        align-items: center;
+    }
+
+    .contact-text {
+        width: 100%;
+        text-align: center;
+    }
+
+    .contact-form {
+        width: 100%;
+    }
+
+
+
+    input:not([type="checkbox"]), textarea {
+        font-size: 14px;
+        padding: 15px;
+    }
+
+    p {
+        font-size: 1rem;
+    }
+
+    /* Button anpassen */
+    .primary {
+        width: 100%;
+        text-align: center;
+    }
+    // button {
+    //     transform: translateX(-50%);
+    //     left: 50%;
+    // }
+}
+
+.feedback-message {
+    margin-top: 20px;
+    margin-bottom: 24px;
+    font-size: 14px;
+    text-align: center;
+    padding: 18px;
+    border-radius: 10px;
+}
+
+.success {
+    color: $green;
+}
+
+.error {
+    color: $red;
+}

@@ -1,6 +1,11 @@
 
 @import './../../../styles.scss';
 
+h2 {
+    font-size: clamp(45px, 6vw, 90px);
+    line-height: clamp(54px, 7vw, 108px);
+}
+
 .portfolio {
     max-width: 1440px;
     padding: 20px;
@@ -271,7 +276,6 @@
     }
   }
   
-
 @media (max-width: 1300px) {
     .portfolio-container {
         max-width: 100%;
@@ -283,3 +287,19 @@
         width: calc(100% - 20px);
     }
 }
+
+@media (max-width: 600px) {
+    .portfolio-container {
+        flex-direction: column;
+        gap: 10px; 
+        align-items: center;
+    }
+
+    .box {
+        width: calc(100% - 10px); 
+        max-width: 310px; 
+        margin: 0 auto; 
+        padding: 5px; 
+    }
+}
+

@@ -24,54 +24,90 @@
 
         <div class="contact-form">
             <form id="contactForm" (ngSubmit)="onSubmit()" [formGroup]="contactForm" novalidate>
-                <!-- Honeypot Input (unsichtbar) -->
+               
                 <div class="form-group honeypot">
                     <input type="text" id="honeypot" formControlName="honeypot" placeholder="{{ isEnglish ? 'Your name' : 'Dein Name' }}" />
                 </div>
         
                 <div class="form-group">
                     <label for="name"></label>
-                    <input type="text" id="name" formControlName="name" placeholder="{{ isEnglish ? 'Your name' : 'Dein Name' }}" />
+                    <div class="input-container">
+                        <div class="input-wrapper"
+                             [ngClass]="{
+                                 'valid': contactForm.get('name')?.valid && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched),
+                                 'invalid': contactForm.get('name')?.invalid && (contactForm.get('name')?.dirty || contactForm.get('name')?.touched)
+                             }">
+                            <input type="text" id="name" formControlName="name" placeholder="{{ isEnglish ? 'Your name' : 'Dein Name' }}" />
+                        </div>
+                    </div>
                     <div *ngIf="contactForm.get('name')?.touched && contactForm.get('name')?.invalid" class="error">
                         {{ isEnglish ? 'Name is required.' : 'Name ist erforderlich.' }}
                     </div>
                 </div>
-        
+                
                 <div class="form-group">
                     <label for="email"></label>
-                    <input type="email" id="email" formControlName="email" placeholder="{{ isEnglish ? 'Your email' : 'Deine E-Mail' }}" />
+                    <div class="input-container">
+                        <div class="input-wrapper"
+                            [ngClass]="{
+                                'valid': contactForm.get('email')?.valid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched),
+                                'invalid': contactForm.get('email')?.invalid && (contactForm.get('email')?.dirty || contactForm.get('email')?.touched)
+                            }">
+                            <input type="email" id="email" formControlName="email" placeholder="{{ isEnglish ? 'Your email' : 'Deine E-Mail' }}" />
+                        </div>
+                    </div>
                     <div *ngIf="contactForm.get('email')?.touched && contactForm.get('email')?.invalid" class="error">
                         {{ isEnglish ? 'Valid email is required.' : 'Eine gültige E-Mail ist erforderlich.' }}
                     </div>
                 </div>
-        
+
                 <div class="form-group">
                     <label for="message"></label>
-                    <textarea id="message" formControlName="message" placeholder="{{ isEnglish ? 'Your message' : 'Deine Nachricht' }}"></textarea>
+                    <div class="input-container">
+                        <div class="input-wrapper"
+                            [ngClass]="{
+                                'valid': contactForm.get('message')?.valid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched),
+                                'invalid': contactForm.get('message')?.invalid && (contactForm.get('message')?.dirty || contactForm.get('message')?.touched)
+                            }">
+                            <textarea id="message" formControlName="message" placeholder="{{ isEnglish ? 'Your message' : 'Deine Nachricht' }}"></textarea>
+                        </div>
+                    </div>
                     <div *ngIf="contactForm.get('message')?.touched && contactForm.get('message')?.invalid" class="error">
                         {{ isEnglish ? 'Message is required.' : 'Nachricht ist erforderlich.' }}
                     </div>
                 </div>
 
-                <div class="form-group checkbox-group">
-                    <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy" />
-                    <label for="privacyPolicy">
-                        {{ isEnglish ? "I've read the" : 'Ich habe die' }}
-                        <span>
-                            <a [routerLink]="'/privacy-policy'">
-                                {{ isEnglish ? 'privacy policy' : 'Datenschutzerklärung' }}
-                            </a>
-                        </span>
-                        {{ isEnglish ? 'and agree to the processing of my data as outlined.' : 'gelesen und stimme der Verarbeitung meiner Daten gemäß den Bestimmungen zu.' }}
-                    </label>
+                <div class="form-group">
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="privacyPolicy" formControlName="privacyPolicy" />
+                        <label for="privacyPolicy">
+                            {{ isEnglish ? "I've read the" : 'Ich habe die' }}
+                            <span>
+                                <a [routerLink]="'/privacy-policy'">
+                                    {{ isEnglish ? 'privacy policy' : 'Datenschutzerklärung' }}
+                                </a>
+                            </span>
+                            {{ isEnglish ? 'and agree to the processing of my data as outlined.' : 'gelesen und stimme der Verarbeitung meiner Daten gemäß den Bestimmungen zu.' }}
+                        </label>
+                    </div>
                     <div *ngIf="contactForm.get('privacyPolicy')?.touched && contactForm.get('privacyPolicy')?.invalid" class="error">
                         {{ isEnglish ? 'You must agree to the privacy policy.' : 'Du musst der Datenschutzerklärung zustimmen.' }}
                     </div>
-                </div>                
-        
-                <button type="submit" [disabled]="!contactForm.valid || contactForm.get('honeypot')?.value" class="submit-btn">
-                    {{ isEnglish ? 'Send message :)' : 'Nachricht senden :)' }}
+                </div>  
+                
+                <div *ngIf="feedbackMessage" [ngClass]="feedbackColor" class="feedback-message">
+                    {{ feedbackMessage }}
+                </div>
+                
+                
+                <button id="primary-btn" 
+                        type="submit" 
+                        [disabled]="!contactForm.valid || contactForm.get('honeypot')?.value" 
+                        class="primary ripple-button" 
+                        (click)="addRippleEffect($event)">
+                        {{ isEnglish ? 'Send message :)' : 'Absenden :)' }}
                 </button>
+
             </form>
         </div>
     </div>
