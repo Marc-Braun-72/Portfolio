@@ -1,34 +1,63 @@
 <div class="carousel">
     <div class="carousel-container">
         <div class="carousel-content">
+            <!-- Carousel Item 1 -->
             <div class="carousel-item">
-                <div class="quote-box">
-                    <p class="quote-text">Rezension 1 - Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-                </div>
-                <div class="image-box">
-                    <img src="https://via.placeholder.com/272" alt="Bild 1">
+                <div class="carousel-item-content">
+                    <div class="quote-box">
+                        <div class="quote-content">
+                            <p class="quote-text">
+                                {{ isEnglish 
+                                    ? 'Working with Marc Braun was a consistently positive experience. Marc is an expert in CSS, with a particular talent for responsive and mobile design, making him an invaluable asset to any web development team. His approachable demeanor and the security he brings to project execution make working together a pleasure. Marc stays composed even when facing the most complex challenges, solving them with ease and efficiency. His ability to maintain a calm and focused demeanor under pressure, combined with his disciplined and detail-oriented work ethic, ensures that every project component is executed to the highest standards. Marc’s commitment to teamwork and his knack for creative solutions significantly enhance the team\'s performance and project outcomes.'
+                                    : 'Mit Marc Braun zu arbeiten, war durchweg eine positive Erfahrung. Marc ist ein CSS-Experte mit besonderem Talent für responsives und mobiles Design, was ihn zu einem wertvollen Mitglied für jedes Webentwicklungsteam macht. Seine zugängliche Art und die Sicherheit, die er bei der Projektdurchführung bietet, machen die Zusammenarbeit angenehm. Marc bleibt auch bei den komplexesten Herausforderungen ruhig und bewältigt sie mit Leichtigkeit und Effizienz. Seine Fähigkeit, auch unter Druck ruhig und fokussiert zu bleiben, zusammen mit seiner disziplinierten und detailorientierten Arbeitsweise, stellt sicher, dass jeder Projektbestandteil nach höchsten Standards ausgeführt wird. Marcs Engagement für Teamarbeit und sein Gespür für kreative Lösungen steigern die Leistung und den Erfolg des Teams erheblich.' }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <img src="https://via.placeholder.com/272" alt="Bild 1">
+                    </div>
                 </div>
             </div>
+            
+            <!-- Carousel Item 2 -->
             <div class="carousel-item">
-                <div class="quote-box">
-                    <p class="quote-text">Rezension 2 - Integer posuere erat a ante venenatis dapibus posuere velit aliquet.</p>
-                </div>
-                <div class="image-box">
-                    <img src="https://via.placeholder.com/272" alt="Bild 2">
+                <div class="carousel-item-content">
+                    <div class="quote-box">
+                        <div class="quote-content">
+                            <p class="quote-text">
+                                {{ isEnglish 
+                                    ? 'Marc Braun impressed us in our joint project with his excellent design and JavaScript skills. He not only implements designs precisely, but also always contributes creative and valuable ideas. Marc always knew exactly what needed to be done and solved challenges quickly and efficiently. His professionalism and commitment contributed significantly to the success of the project.'
+                                    : 'Marc Braun hat uns in unserem gemeinsamen Projekt mit seinen hervorragenden Design- und JavaScript-Fähigkeiten beeindruckt. Er setzt Designs nicht nur präzise um, sondern bringt auch immer kreative und wertvolle Ideen ein. Marc wusste stets genau, was zu tun war, und löste Herausforderungen schnell und effizient. Seine Professionalität und sein Engagement trugen maßgeblich zum Erfolg des Projekts bei.' }}
+                            </p>
+                        </div>
+                    </div>
+                    <div class="image-box">
+                        <img src="https://via.placeholder.com/272" alt="Bild 2">
+                    </div>
                 </div>
             </div>
+            
+            <!-- Carousel Item 3 -->
             <div class="carousel-item">
-                <div class="quote-box">
-                    <p class="quote-text">Rezension 3 - Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
-                </div>
-                <div class="image-box">
-                    <img src="https://via.placeholder.com/272" alt="Bild 3">
+                <div class="carousel-item-content">
+                    <div class="quote-box">
+                        <div class="quote-content">
+                            <p class="quote-text">
+                                {{ isEnglish 
+                                    ? 'Marc took on the more complicated tasks during the Kochwelt project and completed them quickly and neatly. His friendly and helpful nature greatly enriched the group. It was a lot of fun to carry out the project with him.'
+                                    : 'Marc hat während des Kochwelt Projektes gerne die komplizierteren Arbeiten übernommen und diese schnell und sauber umgesetzt. Durch seine freundliche und hilfsbereite Art hat er die Gruppe sehr bereichert. Es hat viel Spaß gemacht, mit ihm das Projekt durchzuführen.' }}
+                            </p>
+                        </div>
+                    </div>  
+                    <div class="image-box">
+                        <img src="https://via.placeholder.com/272" alt="Bild 3">
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Carousel -->
+    <!-- Arrows and Dots remain unchanged -->
     <div class="arrows">
         <div class="arrow arrow-left">
             <div class="arrow-tip"></div>
@@ -46,5 +75,4 @@
             <div class="arrow-tip"></div>
         </div>
     </div>
-    
 </div>

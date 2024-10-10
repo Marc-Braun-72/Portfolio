@@ -33,8 +33,7 @@
                     <li><a href="#skills" (click)="closeMenu()">{{ isEnglish ? 'Skills' : 'Kenntnisse' }}</a></li>
                     <li><a href="#portfolio" (click)="closeMenu()">Portfolio</a></li>
                     <li><a href="#contact" (click)="closeMenu()">{{ isEnglish ? 'Contact' : 'Kontakt' }}</a></li>                    
-                    <li></li>
-                    <li>
+                    <li class="language-switch-item">
                         <label class="switch">
                             <input type="checkbox" checked [checked]="isEnglish" (change)="onLanguageChange()">
                             <span class="slider"></span>

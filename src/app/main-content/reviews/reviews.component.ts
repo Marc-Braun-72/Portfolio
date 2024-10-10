@@ -1,4 +1,5 @@
 import { Component, AfterViewInit } from '@angular/core';
+import { LanguageService } from '../../language.service';
 
 @Component({
   selector: 'app-reviews',
@@ -10,8 +11,10 @@ import { Component, AfterViewInit } from '@angular/core';
 export class ReviewsComponent implements AfterViewInit {
   currentIndex = 0;
   totalItems = 3;
+  isEnglish = true;
 
-  
+  constructor(private languageService: LanguageService) {}
+
   ngAfterViewInit() {
     const carouselContent = document.querySelector('.carousel-content') as HTMLElement;
     const dots = document.querySelectorAll('.dot') as NodeListOf<HTMLElement>;
@@ -42,14 +45,30 @@ export class ReviewsComponent implements AfterViewInit {
         this.updateCarousel(carouselContent, dots);
       });
     });
+
+    // Set initial language based on LanguageService
+    this.languageService.getCurrentLanguage().subscribe(lang => {
+      this.isEnglish = lang === 'en';
+    });
   }
 
   updateCarousel(carouselContent: HTMLElement, dots: NodeListOf<HTMLElement>) {
+    const itemWidth = 100 / 2.96; 
+    carouselContent.style.transform = `translateX(${-this.currentIndex * itemWidth}%)`;
 
-    carouselContent.style.transform = `translateX(${-this.currentIndex * 100}%)`;
+    const items = document.querySelectorAll('.carousel-item');
+    
+    items.forEach((item, index) => {
+        item.classList.toggle('active', index === this.currentIndex);
+    });
 
     dots.forEach((dot, index) => {
-      dot.classList.toggle('active', index === this.currentIndex);
+        dot.classList.toggle('active', index === this.currentIndex);
     });
+  }
+
+  onLanguageChange() {
+    this.isEnglish = !this.isEnglish;
+    this.languageService.changeLanguage(this.isEnglish ? 'en' : 'de');
   }
 }

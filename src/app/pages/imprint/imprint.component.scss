@@ -48,15 +48,23 @@ section {
   }
 
   a {
-    color: #3498db;
+    color: $green;
     text-decoration: none;
+    position: relative;
 
-    &:hover {
-      text-decoration: underline;
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: $green;
+      transition: width 0.3s ease-in-out;
     }
-
-    &:visited {
-      color: #2980b9;
+  
+    &:hover::after {
+      width: 70%;
     }
   }
 }

@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LanguageService } from './../../../app/language.service'; 
+
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+import MotionPathPlugin from "gsap/MotionPathPlugin"; // Für Bogenbewegungen
 
 @Component({
   selector: 'app-skills',
@@ -8,7 +12,7 @@ import { LanguageService } from './../../../app/language.service';
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.scss']
 })
-export class SkillsComponent implements OnInit {
+export class SkillsComponent implements OnInit, AfterViewInit {
   isEnglish = true;
 
   constructor(private languageService: LanguageService) {}
@@ -19,9 +23,8 @@ export class SkillsComponent implements OnInit {
     });
   }
 
-  onLanguageChange() {
-    this.isEnglish = !this.isEnglish;
-    this.languageService.changeLanguage(this.isEnglish ? 'en' : 'de');
+  ngAfterViewInit() {
+    this.animateIcons();
   }
 
   addRippleEffect(event: MouseEvent) {
@@ -39,6 +42,39 @@ export class SkillsComponent implements OnInit {
     
     ripple.addEventListener('animationend', () => {
       ripple.remove();
+    });
+  }
+
+  animateIcons() {
+    gsap.registerPlugin(ScrollTrigger, MotionPathPlugin);
+
+    const icons = document.querySelectorAll('.icon-item');
+
+    gsap.set(icons, { opacity: 0, x: -100, y: 50 });
+
+    icons.forEach((icon, index) => {
+      gsap.to(icon, {
+        opacity: 1,
+        x: 0,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        delay: index * 0.1, 
+        scrollTrigger: {
+          trigger: icon,
+          start: "top 90%",
+          toggleActions: "play none none none",
+        },
+        motionPath: {
+          path: [
+            { x: -100, y: 50 },
+            { x: -50, y: 0 },
+            { x: 0, y: 0 }
+          ],
+          curviness: 1.5,
+          autoRotate: false
+        }
+      });
     });
   }
 }

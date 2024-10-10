@@ -13,6 +13,8 @@ header {
   z-index: 1000;
   padding: 0 20px;
   text-align: center;
+  box-sizing: border-box;
+  max-width: 100%;
 
   &.scrolled {
     background-color: $background-dark;
@@ -20,6 +22,7 @@ header {
 
   .header_content {
     display: flex;
+    flex-wrap: nowrap;
     height: 109px;
     max-width: 1440px;
     margin: 0 auto;
@@ -31,13 +34,14 @@ header {
 
   .header_logo {
     .logo_name {
-      font-size: 40px;
+      font-size: clamp(24px, 5vw, 40px);
       color: $white;
       font-weight: bold;
       text-decoration: none;
       transition: color 0.3s ease-in-out;
       line-height: 60px;
-      text-shadow: 0 0 2px $purple;
+      text-shadow: 0 0 2px $green;
+      flex-shrink: 0;
     }
 
     a {
@@ -45,7 +49,7 @@ header {
 
       &:hover .logo_name span {
         color: $white;
-        text-shadow: 0 0 10px $green;
+        text-shadow: 0 0 16px $green;
         transition: color 0.1s ease-in-out;
       }
     }
@@ -194,7 +198,11 @@ header {
     flex-direction: row-reverse;
   }
 
+
+
   @media (max-width: 900px) {
+  
+
     .header_content {
       flex-direction: row;
       justify-content: space-between;
@@ -209,6 +217,10 @@ header {
       display: flex;
     }
 
+    .language-switch-item {
+      display: none;
+    }
+
     .header_menu {
       padding: 50px 0;
       display: none;
@@ -216,10 +228,11 @@ header {
       position: absolute;
       top: 100%;
       right: 0;
-      background-color: $mobile-menu;
+      background-color: #414856;
       width: 100%;
       text-align: center;
-
+      z-index: 1000;
+      
       &.menu-open {
         display: flex;
       }
@@ -284,9 +297,15 @@ header {
 
 @media (max-width: 390px) {
   header {
-    padding: 0;
+    padding: 0 10px;
   }
   h1.logo_name {
     font-size: 32px !important;
   }
+  .container {
+    padding: 0;
+  }
+
+
+
 }
