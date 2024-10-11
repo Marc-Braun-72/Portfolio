@@ -83,16 +83,28 @@
 }
 
 .farbklecks-left {
+    will-change: transform;
     left: -50px; 
     background-image: url('./../../../assets/images/shadows/purple_shadow_about_me.svg');
 
+    animation: splash-left 1.2s ease-out forwards, pulse 1.8s ease-in-out 1.2s 2 !important;
+}
+
+.farbklecks-left.animate {
+    will-change: transform;
     animation: splash-left 1.2s ease-out forwards, pulse 1.8s ease-in-out 1.2s 2;
 }
 
 .farbklecks-right {
+    will-change: transform;
     right: -150px; 
     background-image: url('./../../../assets/images/shadows/blue_shadow_1_v2.svg');
-    animation: splash-right 1.2s ease-out 0.2s forwards, pulse 1.8s ease-in-out 1.4s 2;
+    animation: splash-right 1.2s ease-out 0.2s forwards, pulse 1.8s ease-in-out 1.4s 2 !important;
+}
+
+.farbklecks-right.animate {
+    will-change: transform;
+    animation: splash-right 1.2s ease-out 0.2s forwards, pulse 1.8s ease-in-out 1.4s 2 !important;
 }
 
 

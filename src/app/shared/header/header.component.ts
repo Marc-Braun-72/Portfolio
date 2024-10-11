@@ -13,7 +13,7 @@ export class HeaderComponent implements OnInit {
   menuOpen = false;
 
   toggleMenu() {
-      this.menuOpen = !this.menuOpen;
+    this.menuOpen = !this.menuOpen;
   }
   closeMenu() {
     this.menuOpen = false;
