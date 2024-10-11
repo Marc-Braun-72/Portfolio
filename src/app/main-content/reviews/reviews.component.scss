@@ -1,10 +1,8 @@
 // Globale Variablen
 @import './../../../styles.scss';
 
-
-
 .carousel {
-    margin: 10vw auto;
+    margin: 5vw auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,16 +13,16 @@
     .carousel-container {
         width: 100%;
         overflow: hidden; 
-        padding: 5vw 2vw 4vw 2vw;
+        
         box-sizing: border-box;
     }
 
     .carousel-content {
         display: flex;
         transition: transform 0.5s ease, opacity 0.5s ease;
-        width: 296%; 
-        gap: 1vw; 
-    }
+        width: 300%; 
+    
+    }    
 
     .carousel-item {
         opacity: 0; 
@@ -34,9 +32,10 @@
         justify-content: center;
         width: 33.3333%;
         flex-shrink: 0;
-        padding: 0 1%;
+        padding: 0 2vw;
         box-sizing: border-box;
         overflow: visible;
+        padding: 5vw 2vw 4vw 2vw;
 
         &.active {
             opacity: 1; 
@@ -47,7 +46,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        width: 96%;
+        width: 100%;
         margin: 0 auto;
         flex-wrap: wrap-reverse;
     }
@@ -70,7 +69,7 @@
 
 .quote-box {
     box-shadow: 0 0 15px rgba($purple, 0.3);
-    transition: box-shadow 0.3s ease;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
     width: 72%;
     padding: 20px 1vw 2vw 2vw;
     border: 3px solid $purple;
@@ -83,19 +82,32 @@
     margin: 0;
     align-self: center;
 
+    @media (max-width: 768px) {
+        width: 90%;
+        padding: 15px;
+        border-radius: 16px;
+    }
+
     &:hover {
-        box-shadow: 0 0 30px rgba($purple, 0.8);
+        box-shadow: 0 0 20px rgba($purple, 0.6);
+        @media (max-width: 768px) {
+            box-shadow: 0 0 10px rgba($purple, 0.4);
+        }
     }
 
     &::before {
         content: "“";
-        font-size: clamp(200px, 15vw, 280px);
+        font-size: clamp(150px, 15vw, 280px);
         position: absolute;
         top: -0.6em; 
         left: -0.1em;
         color: $green;
-        z-index: 1; 
-    }
+        z-index: 1;
+        @media (max-width: 768px) {
+            font-size: clamp(100px, 10vw, 200px);
+            top: -0.4em;
+            left: -0.05em;
+        }
 
     &::-webkit-scrollbar {
         width: 8px;
@@ -110,7 +122,7 @@
         border-radius: 4px;
         border: 2px solid $background-dark;
     }
-}
+}      } 
 
 .quote-content {
     height: 100%;
@@ -129,7 +141,12 @@
     margin-left: 3%;
     margin-top: 30px;
     align-self: flex-start;
-    position: relative; // Hinzugefügt für korrekte Positionierung
+    position: relative; 
+
+    @media (max-width: 768px) {
+        width: 40%;
+        margin: 20px auto;
+    }
 
     img {
         width: 90%;
@@ -141,8 +158,12 @@
     }
 
     &:hover img {
-        box-shadow: 0 0 30px rgba($green, 0.8); 
-        transform: scale(1.05); 
+        box-shadow: 0 0 20px rgba($green, 0.6);
+        transform: scale(1.03);
+        @media (max-width: 768px) {
+            box-shadow: 0 0 10px rgba($green, 0.4);
+            transform: scale(1.02);
+        }
     }
 }
 
@@ -223,6 +244,40 @@
     }
 }
 
+.carousel-item-content:hover {
+    .quote-box {
+        box-shadow: 0 0 25px rgba($purple, 0.7);
+        transform: translateY(-3px);
+        @media (max-width: 768px) {
+            box-shadow: 0 0 15px rgba($purple, 0.5);
+            transform: translateY(-2px);
+        }
+
+        &::before {
+            transform: perspective(100px) rotateY(5deg);
+            @media (max-width: 768px) {
+                transform: perspective(50px) rotateY(3deg);
+            }
+        }
+    }
+
+    .image-box {
+        transform: translateY(-3px);
+        @media (max-width: 768px) {
+            transform: translateY(-2px);
+        }
+
+        img {
+            box-shadow: 0 0 25px rgba($green, 0.7);
+            transform: scale(1.04);
+            @media (max-width: 768px) {
+                box-shadow: 0 0 15px rgba($green, 0.5);
+                transform: scale(1.02);
+            }
+        }
+    }
+}
+
 @media (min-width: 901px) {
     .carousel-item-content {
         align-items: center; 
@@ -286,7 +341,7 @@
 
         &::before {
             font-size: clamp(140px, 10vw, 180px);
-            top: -60px;
+            top: -80px;
             left: -15px;
         }
     }

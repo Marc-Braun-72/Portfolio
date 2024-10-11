@@ -1,19 +1,24 @@
-import { Component, AfterViewInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { LanguageService } from '../../language.service';
 
 @Component({
   selector: 'app-reviews',
   standalone: true,
-  imports: [],
   templateUrl: './reviews.component.html',
-  styleUrl: './reviews.component.scss'
+  styleUrls: ['./reviews.component.scss']
 })
-export class ReviewsComponent implements AfterViewInit {
+export class ReviewsComponent implements OnInit, AfterViewInit {
   currentIndex = 0;
   totalItems = 3;
   isEnglish = true;
 
   constructor(private languageService: LanguageService) {}
+
+  ngOnInit() {
+    this.languageService.getCurrentLanguage().subscribe(lang => {
+      this.isEnglish = lang === 'en';
+    });
+  }
 
   ngAfterViewInit() {
     const carouselContent = document.querySelector('.carousel-content') as HTMLElement;
@@ -45,15 +50,10 @@ export class ReviewsComponent implements AfterViewInit {
         this.updateCarousel(carouselContent, dots);
       });
     });
-
-    // Set initial language based on LanguageService
-    this.languageService.getCurrentLanguage().subscribe(lang => {
-      this.isEnglish = lang === 'en';
-    });
   }
 
   updateCarousel(carouselContent: HTMLElement, dots: NodeListOf<HTMLElement>) {
-    const itemWidth = 100 / 2.96; 
+    const itemWidth = 100 / 3; 
     carouselContent.style.transform = `translateX(${-this.currentIndex * itemWidth}%)`;
 
     const items = document.querySelectorAll('.carousel-item');

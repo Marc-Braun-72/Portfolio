@@ -79,20 +79,20 @@
     background-size: cover;
     background-repeat: no-repeat;
     transform-origin: center center;
+    animation: none;
 }
 
 .farbklecks-left {
     left: -50px; 
     background-image: url('./../../../assets/images/shadows/purple_shadow_about_me.svg');
 
-    animation: splash-left 1.2s ease-out forwards;
+    animation: splash-left 1.2s ease-out forwards, pulse 1.8s ease-in-out 1.2s 2;
 }
 
 .farbklecks-right {
     right: -150px; 
     background-image: url('./../../../assets/images/shadows/blue_shadow_1_v2.svg');
-    animation: splash-right 1.2s ease-out forwards;
-    animation-delay: 0.2s;
+    animation: splash-right 1.2s ease-out 0.2s forwards, pulse 1.8s ease-in-out 1.4s 2;
 }
 
 
@@ -116,6 +116,15 @@
     100% {
         transform: translateX(0) scale(1) rotate(0deg);
         opacity: 1;
+    }
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
     }
 }
 

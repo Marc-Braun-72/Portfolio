@@ -163,7 +163,7 @@ ul {
     z-index: -1; 
     overflow-x: visible;
     filter: blur(10px);
-    animation: moveBackground 3s linear infinite;
+    animation: moveBackground 3s linear infinite, pulseBackground 4s ease-in-out infinite;
 }
 
 @keyframes moveBackground {
@@ -175,6 +175,16 @@ ul {
     }
     100% {
         transform: translateX(0);
+    }
+}
+
+
+@keyframes pulseBackground {
+    0%, 100% {
+        transform: translateX(0) scale(1);
+    }
+    50% {
+        transform: translateX(50px) scale(1.1);
     }
 }
 

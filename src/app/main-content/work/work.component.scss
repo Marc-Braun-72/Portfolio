@@ -26,6 +26,7 @@ h2 {
         z-index: 1;
         background-size: cover;
         background-repeat: no-repeat;
+        animation: moveAndPulse 4s ease-in-out infinite;
     }
 
     .farbklecks-right {
@@ -66,6 +67,16 @@ h2 {
         max-width: 1240px;
         margin: 20px auto 0;
         justify-content: space-between; 
+    }
+}
+
+
+@keyframes moveAndPulse {
+    0%, 100% {
+        transform: translateX(0) scale(1);
+    }
+    50% {
+        transform: translateX(30px) scale(1.2);
     }
 }
 
