@@ -141,6 +141,26 @@ h3 {
 
 }
 
+.contact-me {
+    display: block;
+    color: $indigo;
+    text-align: left;
+    transform-origin: left;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.03);
+        opacity: 0.8;
+    }
+}
+
+
 .contact-form {
     width: 55%; 
     padding: 20px;

@@ -113,7 +113,7 @@ h2 {
 
     @for $i from 1 through 4 {
         &.box#{$i}::before {
-            background-image: url('./../../../assets/images/work/#{nth(("el_pollo_loco", "join", "da_bubble", "pokedex"), $i)}.svg');
+            background-image: url('./../../../assets/images/work/#{nth(("el_pollo_loco", "join", "da_bubble", "pokedex"), $i)}.png');
         }
     }
 
