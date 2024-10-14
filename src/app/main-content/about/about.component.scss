@@ -188,6 +188,22 @@ ul {
     }
 }
 
+@media (max-width: 768px) {
+    .background-left {
+        animation: moveBackground 3s linear infinite, pulseBackgroundSmall 4s ease-in-out infinite;
+    }
+
+    @keyframes pulseBackgroundSmall {
+        0%, 100% {
+            transform: translateX(0) scale(1);
+        }
+        50% {
+            transform: translateX(10px) scale(1.05); 
+        }
+    }
+}
+
+
 .about-background {
     position: absolute;
     bottom: -50px; 

@@ -2,9 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>Marc Braun</title>
+  <title>Marc Braun - Portfolio</title>
   <base href="/">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1"> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
   <!-- favicon-->
@@ -18,7 +17,7 @@
   <link rel="stylesheet" href="./keyframes-fix.css">
 
   <!-- sticky header fix -->
-  <!-- <script>
+  <script>
     function scrollToId() {
       const navHeight = 109;
       const targetId = window.location.hash.substring(1); 
@@ -27,8 +26,10 @@
         const targetElement = document.getElementById(targetId);
         
         if (targetElement) {
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          setTimeout(() => {
+            const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
+            window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          }, 100);  
         }
       }
     }
@@ -36,35 +37,10 @@
     window.addEventListener('hashchange', scrollToId);
     window.addEventListener('DOMContentLoaded', () => {
       if (window.location.hash) {
-        scrollToId();
+        setTimeout(scrollToId, 100);  
       }
     });
-  </script> -->
-
-<script>
-  function scrollToId() {
-    const navHeight = 109;
-    const targetId = window.location.hash.substring(1); 
-    
-    if (targetId) {
-      const targetElement = document.getElementById(targetId);
-      
-      if (targetElement) {
-        setTimeout(() => {
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
-          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-        }, 100);  
-      }
-    }
-  }
-
-  window.addEventListener('hashchange', scrollToId);
-  window.addEventListener('DOMContentLoaded', () => {
-    if (window.location.hash) {
-      setTimeout(scrollToId, 100);  
-    }
-  });
-</script>
+  </script>
   
 
 </head>

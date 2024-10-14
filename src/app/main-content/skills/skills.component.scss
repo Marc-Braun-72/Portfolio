@@ -184,7 +184,7 @@ section#skills {
 .margin {
   margin-right: 80px;
 }
-/* Keyframes für das Pulsieren */
+
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -194,7 +194,6 @@ section#skills {
   }
 }
 
-/* Keyframes für das Bouncen */
 @keyframes bounce {
   0%, 100% {
     transform: translateY(0);
@@ -204,7 +203,6 @@ section#skills {
   }
 }
 
-/* Keyframes für das Fliegen */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
@@ -214,7 +212,6 @@ section#skills {
   }
 }
 
-/* Keyframes für das Schütteln */
 @keyframes shake {
   0% {
     transform: rotate(360deg) scale(1.2) translateX(0);
@@ -233,7 +230,6 @@ section#skills {
   }
 }
 
-/* Keyframes für die sanfte Schwingbewegung */
 @keyframes sway {
   0%, 100% {
     transform: translateX(0);
@@ -246,7 +242,6 @@ section#skills {
   }
 }
 
-/* Keyframes für das Springen */
 @keyframes jump {
   0%, 100% {
     transform: translateY(0);
@@ -256,7 +251,6 @@ section#skills {
   }
 }
 
-/* Keyframes für das doppelte Springen */
 @keyframes doubleJump {
   0%, 20%, 40%, 100% {
     transform: translateY(0);
@@ -286,12 +280,13 @@ section#skills {
 @media (max-width: 1200px) {
   .icon-item { width: 90px; }
   .icon-label { font-size: 14px; }
-  .text-container { margin-top: 60px; }
+  .text-container { margin-top: 60px;}
 }
 
 @media (max-width: 992px) {
   .icon-label { font-size: 12px; }
-  .text-container { margin-top: 40px; }
+  .text-container { margin-top: 40px;}
+  .icons-container { padding-left: 10px; }
 }
 
 @media (max-width: 960px) {
@@ -300,16 +295,29 @@ section#skills {
   .icon-item { margin: 4px;}
 }
 
-@media (max-width: 820px) {
+@media (max-width: 822px) {
   .icon-item { 
     margin: 12px;
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: 80px;
   }
-  .icon { display: contents; width: 40px; height: 40px; }
+  .icon { display: contents; width: 60px; height: 60px; }
   .icon-label { font-size: 12px; padding-top: 16px;}
   .text-container { margin-top: 40px; }
+}
+
+@media (max-width: 792px) {
+  .icon-item { 
+    width: 75px;
+  }
+}
+
+@media (max-width: 758px) {
+  .icon-item { 
+    width: 60px;
+  }
 }
 
 @media (max-width: 680px) {
@@ -337,7 +345,7 @@ section#skills {
   }
 
   .icon-item {
-    width: 50px;
+    width: 48px;
     margin: 10px;
     display: flex;
     flex-direction: column;
@@ -345,11 +353,11 @@ section#skills {
 
     .icon { width: 30px; height: 30px; margin: 0 auto; }
     .icon-label { font-size: 11px; padding-top: 16px; }
-    .small-image { left: 0; bottom: 90px; }
+    .small-image { left: 0; bottom: 90px; width: 150px; }
   }
 
-  .text-container { margin: 20px 6px; padding-left: 0; text-align: center; }
-  .icons-container { margin-bottom: 100px; }
+  .text-container { margin: 20px 10px; padding-left: 0;}
+  .icons-container { margin-bottom: 100px; padding-left: 0; }
   .flex-skills { margin-left: 20px; }
   .margin { margin-right: 0; }
   .icon-row { margin: 0 auto; text-align: center; left: 50%; transform: translateX(-50%); position: relative; }

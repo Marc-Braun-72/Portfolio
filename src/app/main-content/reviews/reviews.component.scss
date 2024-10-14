@@ -2,7 +2,7 @@
 @import './../../../styles.scss';
 
 .carousel {
-    margin: 5vw auto;
+    margin: 8vw auto;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -245,39 +245,66 @@
     }
 }
 
+.author {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    margin-top: 20px;
+    color: $purple;
+}
+
+.line {
+    flex-grow: 1;
+    height: 2px;
+    background-color: $purple; 
+    margin-right: 10px; 
+}
+
+.name {
+    font-size: 0.9em;
+    font-weight: bold;
+}
+
 .carousel-item-content:hover {
     .quote-box {
-        box-shadow: 0 0 25px rgba($purple, 0.7);
-        transform: translateY(-3px);
-        @media (max-width: 768px) {
-            box-shadow: 0 0 25px rgba($purple, 0.7);
-            transform: translateY(-2px);
-        }
-
-        &::before {
-            transform: perspective(40px) rotateY(8deg);
-            @media (max-width: 768px) {
-                transform: perspective(40px) rotateY(6deg);
-            }
-        }
+        box-shadow: 0 0 30px rgba($purple, 0.7);
+        transform: scale(1.02);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
     }
 
-    .image-box {
-        transform: translateY(-2px);
-        @media (max-width: 768px) {
-            transform: translateY(-2px);
-        }
+    .image-box img {
+        box-shadow: 0 0 25px rgba($green, 0.7);
+        transform: scale(1.03);
+        transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
 
-        img {
-            box-shadow: 0 0 25px rgba($green, 0.7);
-            transform: scale(1.04);
-            @media (max-width: 768px) {
-                box-shadow: 0 0 25px rgba($green, 0.7);
-                transform: scale(1.04);
-            }
-        }
+    .quote-box::before {
+        color: $green;
+        transform: perspective(50px) rotateY(8deg);
+        transition: color 0.3s ease, transform 0.3s ease;
     }
 }
+
+.quote-box {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.quote-box::before {
+    content: "“";
+    font-size: clamp(150px, 15vw, 280px);
+    position: absolute;
+    top: -0.6em;
+    left: -0.1em;
+    color: $green;
+    transition: color 0.3s ease, transform 0.3s ease;
+    z-index: 1;
+}
+
+.image-box img {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+
 
 @media (min-width: 901px) {
     .carousel-item-content {
