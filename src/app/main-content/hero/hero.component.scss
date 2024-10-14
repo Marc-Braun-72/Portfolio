@@ -284,7 +284,7 @@ a {
     }
     .farbklecks-right {
         right: -180px;
-        top: 380px;
+        top: 300px;
         width: 300px;
         height: 300px;
         filter: blur(30px);
@@ -294,6 +294,11 @@ a {
 @media (max-width: 450px) {
     .rotated-text-container {
         display: none;
+    }
+    .farbklecks-right {
+        right: -180px;
+        top: 200px;
+        filter: blur(10px);
     }
 }
 
