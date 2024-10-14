@@ -44,11 +44,10 @@ section {
 
   p {
     margin-bottom: 15px;
-    text-align: justify;
   }
 
   a {
-    color: #3498db;
+    color: $indigo;
     text-decoration: none;
 
     &:hover {

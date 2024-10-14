@@ -19,6 +19,8 @@
 
   &:hover .icon {
     transform: scale(1.2);
+    filter: drop-shadow(0 0 10px rgba($green, 0.9));
+    border-radius: 50%; 
   }
 }
 

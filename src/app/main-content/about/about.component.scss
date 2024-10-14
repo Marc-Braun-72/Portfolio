@@ -8,7 +8,6 @@
     position: relative;
     overflow: visible; 
     background-color: $background-dark;
-    scroll-margin-top: 109px; 
     padding-bottom: 600px;
 }
 
@@ -163,7 +162,7 @@ ul {
     z-index: -1; 
     overflow-x: visible;
     filter: blur(10px);
-    animation: moveBackground 3s linear infinite, pulseBackground 4s ease-in-out infinite;
+    animation: moveBackground 2s linear infinite, pulseBackground 3s ease-in-out infinite;
 }
 
 @keyframes moveBackground {
@@ -190,7 +189,7 @@ ul {
 
 @media (max-width: 768px) {
     .background-left {
-        animation: moveBackground 3s linear infinite, pulseBackgroundSmall 4s ease-in-out infinite;
+        animation: moveBackground 3s linear infinite, pulseBackgroundSmall 3s ease-in-out infinite;
     }
 
     @keyframes pulseBackgroundSmall {
