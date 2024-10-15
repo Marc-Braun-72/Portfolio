@@ -166,11 +166,11 @@ h2 {
 
         .box-text {
             text-align: center;
-            font-size: 23px;
             font-weight: 400;
-            line-height: 27.6px;
+            font-size: clamp(10px, 1.5vw, 18px); 
+            line-height: clamp(12px, 2vw, 20px);
             color: $black;
-            margin-bottom: 10px;
+            margin-bottom: 5px; 
         }
 
         .box-links {
@@ -193,15 +193,16 @@ h2 {
     .box-buttons {
         position: absolute;
         top: 10px;
-        left: 50%; 
-        transform: translateX(-50%); 
+        left: 50%;
+        transform: translateX(-50%);
         display: flex;
-        gap: 50px; 
+        gap: 15px; 
         opacity: 0;
         transition: opacity 0.3s ease;
         z-index: 4;
-        width: 375px;
-        height: 58px;
+        width: auto;
+        height: 45px; 
+    
     }
     
 
@@ -224,9 +225,9 @@ h2 {
 .box-links p {
     display: inline-block; 
     margin: 0; 
-    font-size: 23px;
+    font-size: clamp(10px, 1.5vw, 18px); 
+    line-height: clamp(12px, 2vw, 20px);
     font-weight: 400;
-    line-height: 27.6px;
 }
 
 .box-links p:not(:last-child)::after {
@@ -234,6 +235,150 @@ h2 {
     margin-left: 10px; 
     margin-right: 10px; 
 }
+
+@media (max-width: 1000px) {
+    #primary-btn {
+        margin-top: 30px !important;
+        padding: 5px;
+        margin: 10px;
+        width: 120px;
+        font-size: 14px;
+
+    }
+}   
+
+@media (max-width: 800px) {
+    #primary-btn {
+        margin-top: 20px !important;
+        padding: 1px;
+        margin: 10px;
+        width: 120px;
+        font-size: 14px;
+        height: 32px;
+    }
+}    
+
+@media (max-width: 700px) {
+    .portfolio-container {
+        flex-wrap: wrap;
+        justify-content: center;
+        flex-direction: column;
+        align-items: center; 
+        gap: 15px; 
+    }
+
+
+    .box {
+        width: calc(100% - 40px); 
+        max-width: calc(100% - 40px); 
+        margin: 0 auto; 
+    }
+    .box-text {
+        text-align: center;
+        font-weight: 400;
+        font-size: 18px !important; 
+        line-height:22px !important;
+    }    
+    .box-title {
+        font-size: 32px !important;
+        line-height: 1.3;
+        margin: 20px;
+    }
+    .box-buttons {
+        top: 20px;
+        gap: 15px;
+        height: 50px;
+    }
+
+    .box-links p {
+        font-size: 18px !important;
+        line-height: 1.5;
+    }
+    #primary-btn {
+        margin-top: 60px !important;
+        padding: 5px;
+        margin: 10px;
+        width: 120px;
+        font-size: 18px;
+        height: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .portfolio-container {
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+    }
+
+    .box {
+        width: calc(100% - 20px); 
+        max-width: calc(100% - 20px); 
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    .box-buttons {
+        top: 5px;
+        gap: 3px; 
+        height: 40px; 
+    }
+}
+
+@media (max-width: 440px) {
+    #primary-btn {
+        margin-top: 20px !important;
+        padding: 0;
+        margin: 0;
+        width: 80px;
+        font-size: 14px;
+        height: 32px;
+    }
+
+    .box {
+        width: calc(100% - 20px); 
+        max-width: calc(100% - 20px); 
+        margin: 0 auto;
+        padding: 5px;
+    }
+
+    .box-text {
+        text-align: center;
+        font-weight: 400;
+        font-size: 12px !important; 
+        line-height:12px !important;
+    }    
+    .box-title {
+        font-size: 18px !important;
+        line-height: 18px !important;
+        margin: 0;
+    }
+    .box-buttons {
+        top: 20px;
+        gap: 15px;
+        height: 50px;
+    }
+    .box-links {
+        gap: 0;
+        margin: 0 auto;
+    }
+    .box-links p {
+        font-size: 11px !important;
+        line-height: 11px;
+    }
+    .box-links p:not(:last-child)::after {
+        content: "|"; 
+        margin-left: 2px; 
+        margin-right: 2px; 
+    }
+}
+
+
+button {
+    font-size: clamp(10px, 1.2vw, 18px); 
+    padding: 8px 16px; 
+}
+
 
 #primary-btn {
     margin-top: 80px;
@@ -287,30 +432,8 @@ h2 {
     }
   }
   
-@media (max-width: 1300px) {
-    .portfolio-container {
-        max-width: 100%;
-    }
-}
 
-@media (max-width: 768px) {
-    .box {
-        width: calc(100% - 20px);
-    }
-}
 
-@media (max-width: 600px) {
-    .portfolio-container {
-        flex-direction: column;
-        gap: 10px; 
-        align-items: center;
-    }
 
-    .box {
-        width: calc(100% - 10px); 
-        max-width: 310px; 
-        margin: 0 auto; 
-        padding: 5px; 
-    }
-}
+
 
