@@ -59,6 +59,7 @@ footer {
     transition: color 0.3s ease-in-out;
     line-height: 60px;
     text-shadow: 0 0 2px $green;
+    cursor: pointer;
   }
 
   a {
@@ -111,6 +112,7 @@ footer {
   position: relative;
   text-decoration: none;
   margin-top: 8px;
+  cursor: pointer;
 
   &::after {
     content: '';

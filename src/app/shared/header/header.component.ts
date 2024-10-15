@@ -1,11 +1,12 @@
 import { Component, OnInit, HostListener } from '@angular/core';
 import { LanguageService } from '../../language.service'; 
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true,
+  standalone: true
 })
 export class HeaderComponent implements OnInit {
   isEnglish = true;
@@ -19,7 +20,7 @@ export class HeaderComponent implements OnInit {
     { id: 'contact', label: 'Contact' }
   ];
 
-  constructor(private languageService: LanguageService) {}
+  constructor(private languageService: LanguageService, private router: Router) {}
 
   ngOnInit() {
     this.languageService.getCurrentLanguage().subscribe(lang => {
@@ -60,16 +61,31 @@ export class HeaderComponent implements OnInit {
   }
 
   updateActiveSection() {
+    let sectionFound = false;
+  
     this.sections.forEach(section => {
       const element = document.getElementById(section.id);
       const rect = element?.getBoundingClientRect();
-      if (rect && rect.top >= 0 && rect.top < window.innerHeight / 2) {
+      
+      // Passen den tolerierten sichtbaren Bereich an
+      if (rect && rect.top < window.innerHeight * 0.6 && rect.bottom >= window.innerHeight * 0.4) {
         this.activeSection = section.id;
+        sectionFound = true;
       }
     });
+  
+    // Entfernt die Markierung nur dann, wenn keine Sektion gefunden wurde und die Seite ganz oben ist
+    if (!sectionFound && window.pageYOffset < 200) {
+      this.activeSection = '';
+    }
   }
+  
 
   isActive(id: string): boolean {
     return this.activeSection === id;
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

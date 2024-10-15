@@ -42,6 +42,7 @@ header {
       line-height: 60px;
       text-shadow: 0 0 2px $green;
       flex-shrink: 0;
+      cursor: pointer;
     }
 
     a {
@@ -173,7 +174,7 @@ header {
   }
 
   .header_menu ul li a.active {
-    color: $green; // Farbe des aktiven Links
+    color: $green; 
     position: relative;
   
     &::after {
@@ -183,7 +184,7 @@ header {
       left: 15%;
       width: 70%;
       height: 2px;
-      background-color: $purple; // Farbe des Balkens für den aktiven Link
+      background-color: $purple;
       transition: width 0.3s ease, background-color 0.3s ease;
     }
   
@@ -191,7 +192,7 @@ header {
       color: $green;
   
       &::after {
-        background-color: $purple; // Farbe des Balkens beim Hover
+        background-color: $purple; 
       }
     }
   }

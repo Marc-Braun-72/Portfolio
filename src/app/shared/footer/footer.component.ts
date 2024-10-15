@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { LanguageService } from '../../language.service';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [RouterModule], 
+  imports: [], 
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
@@ -13,7 +13,7 @@ export class FooterComponent implements OnInit {
   currentYear: number;
   isEnglish: boolean = true;
 
-  constructor(private languageService: LanguageService) {
+  constructor(private languageService: LanguageService, private router: Router) {
     this.currentYear = new Date().getFullYear();
   }
 
@@ -21,5 +21,9 @@ export class FooterComponent implements OnInit {
     this.languageService.getCurrentLanguage().subscribe(lang => {
       this.isEnglish = lang === 'en';
     });
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }
