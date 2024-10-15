@@ -4,8 +4,9 @@ import { ImprintComponent } from './pages/imprint/imprint.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 export const routes: Routes = [
-  { path: '', component: MainContentComponent },  
-  { path: 'imprint', component: ImprintComponent }, 
-  { path: 'privacy-policy', component: PrivacyPolicyComponent },  
-  { path: '**', redirectTo: '' } 
+  { path: '', component: MainContentComponent, pathMatch: 'full' },  
+  { path: 'imprint', component: ImprintComponent, pathMatch: 'full' }, 
+  { path: 'privacy-policy', component: PrivacyPolicyComponent, pathMatch: 'full' },
+  { path: '**', redirectTo: '' }
 ];
+

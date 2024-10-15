@@ -9,25 +9,15 @@ import { LanguageService } from '../../language.service';
 })
 export class HeaderComponent implements OnInit {
   isEnglish = true;
-
   menuOpen = false;
+  activeSection: string = '';
 
-  toggleMenu() {
-    this.menuOpen = !this.menuOpen;
-  }
-  closeMenu() {
-    this.menuOpen = false;
-  }
-  
-
-  @HostListener('document:click', ['$event'])
-onDocumentClick(event: MouseEvent) {
-  const clickedInside = (event.target as HTMLElement).closest('.header_content');
-  if (!clickedInside && this.menuOpen) {
-    this.menuOpen = false;
-  }
-}
-
+  sections: { id: string, label: string }[] = [
+    { id: 'about', label: 'About me' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'portfolio', label: 'Portfolio' },
+    { id: 'contact', label: 'Contact' }
+  ];
 
   constructor(private languageService: LanguageService) {}
 
@@ -37,9 +27,25 @@ onDocumentClick(event: MouseEvent) {
     });
   }
 
+  toggleMenu() {
+    this.menuOpen = !this.menuOpen;
+  }
+
+  closeMenu() {
+    this.menuOpen = false;
+  }
+
   onLanguageChange() {
     this.isEnglish = !this.isEnglish;
     this.languageService.changeLanguage(this.isEnglish ? 'en' : 'de');
+  }
+
+  @HostListener('document:click', ['$event'])
+  onDocumentClick(event: MouseEvent) {
+    const clickedInside = (event.target as HTMLElement).closest('.header_content');
+    if (!clickedInside && this.menuOpen) {
+      this.menuOpen = false;
+    }
   }
 
   @HostListener('window:scroll', [])
@@ -50,5 +56,20 @@ onDocumentClick(event: MouseEvent) {
     } else {
       header?.classList.remove('scrolled');
     }
+    this.updateActiveSection();
+  }
+
+  updateActiveSection() {
+    this.sections.forEach(section => {
+      const element = document.getElementById(section.id);
+      const rect = element?.getBoundingClientRect();
+      if (rect && rect.top >= 0 && rect.top < window.innerHeight / 2) {
+        this.activeSection = section.id;
+      }
+    });
+  }
+
+  isActive(id: string): boolean {
+    return this.activeSection === id;
   }
 }

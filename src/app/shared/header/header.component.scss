@@ -172,6 +172,32 @@ header {
     }
   }
 
+  .header_menu ul li a.active {
+    color: $green; // Farbe des aktiven Links
+    position: relative;
+  
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 15%;
+      width: 70%;
+      height: 2px;
+      background-color: $purple; // Farbe des Balkens für den aktiven Link
+      transition: width 0.3s ease, background-color 0.3s ease;
+    }
+  
+    &:hover {
+      color: $green;
+  
+      &::after {
+        background-color: $purple; // Farbe des Balkens beim Hover
+      }
+    }
+  }
+  
+  
+
   .hamburger-icon {
     display: none;
     cursor: pointer;
