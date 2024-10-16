@@ -1,14 +1,18 @@
-import { Component, OnInit, HostListener } from '@angular/core';
+import { Component, OnInit, HostListener, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
 import { LanguageService } from '../../language.service'; 
 import { Router } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [CommonModule]
 })
 export class HeaderComponent implements OnInit {
+  @ViewChild('headerMenu', { static: false }) headerMenu!: ElementRef;
+
   isEnglish = true;
   menuOpen = false;
   activeSection: string = '';
@@ -20,7 +24,7 @@ export class HeaderComponent implements OnInit {
     { id: 'contact', label: 'Contact' }
   ];
 
-  constructor(private languageService: LanguageService, private router: Router) {}
+  constructor(private languageService: LanguageService, private router: Router, private cdr: ChangeDetectorRef) {}
 
   ngOnInit() {
     this.languageService.getCurrentLanguage().subscribe(lang => {
@@ -28,14 +32,31 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  toggleMenu() {
+  toggleMenu(event: Event) {
+    event.stopPropagation();
     this.menuOpen = !this.menuOpen;
+    this.toggleOverlay(this.menuOpen);
+    
+    if (this.menuOpen) {
+      this.addDocumentClickListener();
+      setTimeout(() => {
+        document.addEventListener('click', this.onDocumentClick.bind(this), { once: true });
+      }, 0);
+    }
   }
-
+  
+  
   closeMenu() {
     this.menuOpen = false;
+    this.toggleOverlay(false);
+    this.cdr.detectChanges();
   }
-
+  
+  toggleOverlay(show: boolean) {
+    const overlay = document.querySelector('.overlay') as HTMLElement;
+    overlay.style.display = show ? 'block' : 'none';
+  }  
+  
   onLanguageChange() {
     this.isEnglish = !this.isEnglish;
     this.languageService.changeLanguage(this.isEnglish ? 'en' : 'de');
@@ -43,12 +64,12 @@ export class HeaderComponent implements OnInit {
 
   @HostListener('document:click', ['$event'])
   onDocumentClick(event: MouseEvent) {
-    const clickedInside = (event.target as HTMLElement).closest('.header_content');
-    if (!clickedInside && this.menuOpen) {
-      this.menuOpen = false;
+    if (this.menuOpen && this.headerMenu && !this.headerMenu.nativeElement.contains(event.target)) {
+      this.closeMenu();
     }
   }
-
+  
+  
   @HostListener('window:scroll', [])
   onWindowScroll() {
     const header = document.querySelector('header');
@@ -89,4 +110,9 @@ export class HeaderComponent implements OnInit {
   navigateAndScroll(route: string) {
     this.router.navigate([route]).then(() => this.scrollToTop());
   }
+
+  addDocumentClickListener() {
+    document.addEventListener('click', this.onDocumentClick.bind(this), { once: true });
+  }
+  
 }

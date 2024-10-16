@@ -1,6 +1,6 @@
 <header id="top">
     <div class="container">
-        <div class="header_content">
+        <div class="header_content" #headerContent>
             <div class="header_logo">
                 <a (click)="navigateAndScroll('/')">
                     <h1 class="logo_name">
@@ -21,13 +21,14 @@
                     <span class="lang-text">{{ isEnglish ? 'EN' : 'DE' }}</span>
                 </label>
 
-                <div class="hamburger-icon" (click)="toggleMenu()">
+                <div class="hamburger-icon" (click)="toggleMenu($event)">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </div>
             </div>
-            <div class="header_menu" [class.menu-open]="menuOpen">
+            <div class="overlay" (click)="closeMenu()"></div>
+            <div class="header_menu" #headerMenu [class.menu-open]="menuOpen">
                 <ul>
                     <li><a href="#about" 
                         [class.active]="isActive('about')" 
@@ -64,3 +65,5 @@
         </div>
     </div>
 </header>
+
+

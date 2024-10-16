@@ -227,62 +227,83 @@ header {
     flex-direction: row-reverse;
   }
 
-
-
   @media (max-width: 900px) {
-  
-
     .header_content {
       flex-direction: row;
       justify-content: space-between;
     }
-
+  
     .mobile-switch {
       order: 1;
       display: flex;
     }
-
+  
     .hamburger-icon {
       display: flex;
     }
-
+  
     .language-switch-item {
       display: none;
     }
-
+  
     .header_menu {
-      padding: 50px 0;
-      display: none;
-      flex-direction: column;
+      display: none; 
       position: absolute;
-      top: 100%;
-      right: 0;
-      background-color: #414856;
+      top: 109px; 
+      left: 0;
       width: 100%;
-      text-align: center;
-      z-index: 1000;
-      
+      height: calc(100vh - 109px);
+      background-color: rgba(34, 34, 34, 0.8);
+      z-index: 1002;
+  
       &.menu-open {
-        display: flex;
+        display: block; 
       }
-
+  
       ul {
-        list-style: none;
+        flex-direction: column;
         padding: 0;
         margin: 0;
-        flex-direction: column;
-
+  
         li {
-          padding: 10px 0;
-
-          &:hover {
-            background-color: $purple;
-          }
-
+          width: 100%;
+          text-align: center;
+          padding: 15px 0;
+          cursor: pointer !important;
+  
           a {
-            text-decoration: none;
-            font-size: 18px;
             color: $white;
+            cursor: pointer !important;
+            display: block;
+            padding: 10px 0;
+            font-weight: 700;
+            text-decoration: none;
+            text-shadow: 0 0 2px $black;
+            transition: none;
+  
+            &:hover {
+              color: $white;
+              background-color: transparent;
+              cursor: pointer;
+            }
+  
+            &::after {
+              display: none;
+            }
+  
+            &.active {
+              color: $white;
+              background-color: rgba(255, 255, 255, 0.1);
+  
+              &::after {
+                display: none;
+              }
+  
+              &:hover {
+                color: $white;
+                cursor: pointer;
+              }
+            }
           }
         }
       }
@@ -334,7 +355,20 @@ header {
   .container {
     padding: 0;
   }
+}
 
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: transparent;
+  z-index: 999; 
+  visibility: hidden;
+  pointer-events: none;
+}
 
-
+.menu-open {
+  display: block;
 }
