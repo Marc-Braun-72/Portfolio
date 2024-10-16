@@ -67,25 +67,26 @@ export class HeaderComponent implements OnInit {
       const element = document.getElementById(section.id);
       const rect = element?.getBoundingClientRect();
       
-      // Passen den tolerierten sichtbaren Bereich an
       if (rect && rect.top < window.innerHeight * 0.6 && rect.bottom >= window.innerHeight * 0.4) {
         this.activeSection = section.id;
         sectionFound = true;
       }
     });
   
-    // Entfernt die Markierung nur dann, wenn keine Sektion gefunden wurde und die Seite ganz oben ist
     if (!sectionFound && window.pageYOffset < 200) {
       this.activeSection = '';
     }
   }
   
-
   isActive(id: string): boolean {
     return this.activeSection === id;
   }
 
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navigateAndScroll(route: string) {
+    this.router.navigate([route]).then(() => this.scrollToTop());
   }
 }

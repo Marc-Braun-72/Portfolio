@@ -2,7 +2,7 @@
 
 <footer>
   <div class="header_logo">
-    <a routerLink="/" (click)="scrollToTop()"> 
+    <a (click)="navigateAndScroll('/')">
         <h1 class="logo_name">
           <span class="accent-green">&lt;/</span>
           <span>M</span>
@@ -12,8 +12,13 @@
           <span class="accent-green">&gt;</span>
         </h1>
     </a>
-    <a class="imprint" routerLink="/imprint">{{ isEnglish ? 'Legal Notice' : 'Impressum' }}</a>
+    <a class="imprint" (click)="navigateAndScroll('/imprint')">
+      {{ isEnglish ? 'Legal Notice' : 'Impressum' }}
+    </a>
   </div>
+  <div>
+    
+</div>
   <p class="footer_name">&copy; Marc Braun {{ currentYear }}</p>
 
   <div class="icon-row">
@@ -28,6 +33,7 @@
     </a>
   </div>
 </footer>
+
 
   
   

@@ -87,9 +87,9 @@
                         <label for="privacyPolicy">
                             {{ isEnglish ? "I've read the" : 'Ich habe die' }}
                             <span>
-                                <a [routerLink]="'/privacy-policy'">
-                                    {{ isEnglish ? 'privacy policy' : 'Datenschutzerklärung' }}
-                                </a>
+                                <a class="privacy" (click)="navigateAndScroll('/privacy-policy')">
+                                    {{ isEnglish ? 'Privacy Policy' : 'Datenschutzerklärung' }}
+                                  </a>
                             </span>
                             {{ isEnglish ? 'and agree to the processing of my data as outlined.' : 'gelesen und stimme der Verarbeitung meiner Daten gemäß den Bestimmungen zu.' }}
                         </label>
@@ -112,7 +112,18 @@
                         {{ isEnglish ? 'Send message :)' : 'Absenden :)' }}
                 </button>
 
+                <div *ngIf="isLoading" class="loading-indicator">
+                    {{ isEnglish ? 'Sending...' : 'Senden...' }}
+                    <div class="spinner"></div>
+                  </div>
+
             </form>
         </div>
+
+        <div class="go-to-top" (click)="scrollToTop()">
+            <img src="./../../../assets/images/go_to_top_button.svg" alt="Go to top" />
+            <span>{{ isEnglish ? 'Go to top' : 'Nach oben' }}</span>
+        </div>
+
     </div>
 </section>

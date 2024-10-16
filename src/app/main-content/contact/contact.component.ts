@@ -4,6 +4,7 @@ import { LanguageService } from './../../../app/language.service';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
+import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
@@ -22,8 +23,10 @@ export class ContactComponent implements OnInit {
 
   constructor(
     private languageService: LanguageService,
-    private fb: FormBuilder,
-    private http: HttpClient
+    private http: HttpClient,
+    private router: Router,
+    private fb: FormBuilder
+  
   ) {}
 
   ngOnInit() {
@@ -102,4 +105,13 @@ export class ContactComponent implements OnInit {
 
     button.appendChild(circle);
   }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navigateAndScroll(route: string) {
+    this.router.navigate([route]).then(() => this.scrollToTop());
+  }
+  
 }

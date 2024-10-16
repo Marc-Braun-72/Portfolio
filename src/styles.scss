@@ -130,3 +130,28 @@ button {
     opacity: 0;
   }
 }
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: $purple;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: $purple;
+  border-radius: 10px;
+  border: 2px solid $indigo;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: $indigo;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: $indigo $purple; 
+}

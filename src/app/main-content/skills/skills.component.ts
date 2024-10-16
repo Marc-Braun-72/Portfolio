@@ -3,7 +3,7 @@ import { LanguageService } from './../../../app/language.service';
 
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import MotionPathPlugin from "gsap/MotionPathPlugin"; // Für Bogenbewegungen
+import MotionPathPlugin from "gsap/MotionPathPlugin";
 
 @Component({
   selector: 'app-skills',

@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { LanguageService } from '../../language.service';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-footer',
   standalone: true,
-  imports: [], 
+  imports: [ RouterModule ], 
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.scss']
 })
@@ -18,6 +19,7 @@ export class FooterComponent implements OnInit {
   }
 
   ngOnInit() {
+    
     this.languageService.getCurrentLanguage().subscribe(lang => {
       this.isEnglish = lang === 'en';
     });
@@ -26,4 +28,9 @@ export class FooterComponent implements OnInit {
   scrollToTop() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  navigateAndScroll(route: string) {
+    this.router.navigate([route]).then(() => this.scrollToTop());
+  }
+  
 }
