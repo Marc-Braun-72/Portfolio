@@ -1,5 +1,8 @@
 <section id="skills">
     <div class="icon-text-section">
+        <div class="invisible-text-up">
+            <p>I have gained experience in building projects with various front end technologies and concepts.</p>
+        </div>
         <div class="icons-container">
             <div class="icon-row">
                 <div class="icon-item">
@@ -54,6 +57,24 @@
                     <img class="small-image" src="../../../assets/images/vue_react.png" alt="VUE.js and REACT">
                 </div>
             </div>
+        </div>
+        <div class="invisible-text-button">
+            <h3>
+                {{ isEnglish ? 'Looking for ' : 'Auf der Suche nach ' }}
+                <span class="animated-text">
+                  <span class="jump-text">{{ isEnglish ? ' another skill ' : ' einer weiteren Fähigkeit ' }}</span>
+                </span>?
+              </h3>
+              
+            <p>{{ isEnglish ? 
+                'Feel free to contact me. I look forward to expanding on my previous knowledge.' : 
+                'Zögere nicht, mich zu kontaktieren. Ich freue mich darauf, mein bisheriges Wissen zu erweitern.' }}
+            </p>
+            <a href="#contact">
+                <button id="primary-btn" class="primary ripple-button" (click)="addRippleEffect($event)">
+                    {{ isEnglish ? 'Get in touch' : 'Kontakt aufnehmen' }}
+                </button>
+            </a>
         </div>
     </div>
     <div class="flex">
