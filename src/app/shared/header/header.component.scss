@@ -269,7 +269,8 @@ header {
           width: 100%;
           text-align: center;
           padding: 15px 0;
-          cursor: pointer !important;
+          transition: font-size 1s ease-in-out;
+          font-size: 23px;
   
           a {
             color: $white;
@@ -279,12 +280,13 @@ header {
             font-weight: 700;
             text-decoration: none;
             text-shadow: 0 0 2px $black;
-            transition: none;
   
             &:hover {
               color: $white;
               background-color: transparent;
               cursor: pointer;
+              font-size: 24px;
+              transition-delay: 0.5
             }
   
             &::after {
