@@ -30,29 +30,29 @@
             <div class="overlay" (click)="closeMenu()"></div>
             <div class="header_menu" #headerMenu [class.menu-open]="menuOpen">
                 <ul>
-                    <li><a href="#about" 
+                    <li><a href="#about" data-scroll
                         [class.active]="isActive('about')" 
                         (click)="closeMenu()">
                         {{ isEnglish ? 'About me' : 'Über mich' }}
                  </a></li>
                  
-                 <li><a href="#skills" 
+                 <li><a href="#skills" data-scroll
                         [class.active]="isActive('skills')" 
                         (click)="closeMenu()">
                         {{ isEnglish ? 'Skills' : 'Kenntnisse' }}
                  </a></li>
                  
-                 <li><a href="#portfolio" 
+                 <li><a href="#portfolio" data-scroll
                         [class.active]="isActive('portfolio')" 
                         (click)="closeMenu()">
                         Portfolio
                  </a></li>
-                 
-                 <li><a href="#contact" 
+                  
+                 <li><a href="#contact" data-scroll
                         [class.active]="isActive('contact')" 
                         (click)="closeMenu()">
                         {{ isEnglish ? 'Contact' : 'Kontakt' }}
-                 </a></li>              
+                 </a></li>      
                     <li class="language-switch-item">
                         <label class="switch">
                             <input type="checkbox" checked [checked]="isEnglish" (change)="onLanguageChange()">

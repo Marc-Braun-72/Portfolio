@@ -18,27 +18,24 @@
 
   <!-- sticky header fix -->
   <script>
-    function scrollToId() {
-      const navHeight = 109;
-      const targetId = window.location.hash.substring(1); 
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('[data-scroll]');
       
-      if (targetId) {
-        const targetElement = document.getElementById(targetId);
-        
-        if (targetElement) {
-          setTimeout(() => {
+      links.forEach(link => {
+        link.addEventListener('click', function(event) {
+          event.preventDefault();
+          
+          const targetId = this.getAttribute('href').substring(1);
+          const navHeight = 109;
+          
+          const targetElement = document.getElementById(targetId);
+          
+          if (targetElement) {
             const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navHeight;
             window.scrollTo({ top: targetPosition, behavior: 'smooth' });
-          }, 100);  
-        }
-      }
-    }
-
-    window.addEventListener('hashchange', scrollToId);
-    window.addEventListener('DOMContentLoaded', () => {
-      if (window.location.hash) {
-        setTimeout(scrollToId, 100);  
-      }
+          }
+        });
+      });
     });
   </script>
   
