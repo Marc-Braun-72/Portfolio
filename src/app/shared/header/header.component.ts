@@ -12,6 +12,7 @@ import { CommonModule } from '@angular/common';
 })
 export class HeaderComponent implements OnInit {
   @ViewChild('headerMenu', { static: false }) headerMenu!: ElementRef;
+  
 
   isEnglish = true;
   menuOpen = false;
