@@ -19,9 +19,9 @@ section {
   }
 
   h1 {
-    font-size: 70px;
+    font-size: clamp(45px, 6vw, 90px);
+    line-height: clamp(54px, 7vw, 108px);
     font-weight: 700;
-    line-height: 108px;
     text-align: center;
     margin-bottom: 20px;
   }
