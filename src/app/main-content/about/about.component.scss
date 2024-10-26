@@ -44,11 +44,6 @@ h2 {
     line-height: clamp(54px, 7vw, 108px);
 }
 
-// #text, li,
-// p {
-//     font-size: 14px;
-// }
-
 .about_image {
     flex: 1 1 50%;
     position: relative; 
@@ -88,7 +83,6 @@ ul {
             width: 40px; 
             height: 40px;
             margin-right: 22px;
-            animation: float 4s ease-in-out infinite;
             transition: transform 0.3s ease;
             display: flex;
             align-items: center;

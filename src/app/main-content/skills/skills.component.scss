@@ -181,10 +181,6 @@ section#skills {
   width: 200px;
 }
 
-.margin {
-  //margin-right: 80px;
-}
-
 @keyframes pulse {
   0%, 100% {
     transform: scale(1);
@@ -263,12 +259,11 @@ section#skills {
 
 .animated-text {
   display: inline-block;
-  animation: sway 2s ease-in-out infinite;
+
 }
 
 .jump-text {
   display: inline-block;
-  transition: transform 0.3s ease;
   cursor: pointer;
 }
 
@@ -440,4 +435,3 @@ section#skills {
   .margin { margin-right: 0; }
   .icon-row { margin: 0 auto; text-align: center; }
 }
-
