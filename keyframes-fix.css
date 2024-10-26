@@ -1,0 +1,37 @@
+
+/* Hero Animation - does not work in ng-build
+******************************************************************/ 
+.farbklecks-left.animate {
+    left: -50px; 
+    background-image: url('./assets/images/shadows/purple_shadow_about_me.svg');
+    animation: splash-left 1.2s ease-out forwards;
+}
+
+.farbklecks-right.animate {
+    right: -150px; 
+    background-image: url('./assets/images/shadows/blue_shadow_1_v2.svg');
+    animation: splash-right 1.2s ease-out 0.2s forwards;
+}
+
+@keyframes splash-left {
+    0% {
+        transform: translateX(-150%) scale(0.5) rotate(-180deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+
+@keyframes splash-right {
+    0% {
+        transform: translateX(150%) scale(0.5) rotate(180deg);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0) scale(1) rotate(0deg);
+        opacity: 1;
+    }
+}
