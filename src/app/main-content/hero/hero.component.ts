@@ -41,4 +41,16 @@ export class HeroComponent implements OnInit {
       ripple.remove();
     });
   }
+
+  scrollToSection(event: Event, targetId: string) {
+    event.preventDefault();
+    const targetElement = document.getElementById(targetId);
+
+    if (targetElement) {
+      window.scrollTo({
+        top: targetElement.offsetTop - 109,
+        behavior: 'smooth'
+      });
+    }
+  }
 }

@@ -18,7 +18,7 @@
         </a>
     </div>
 
-    <a href="#about" class="rotated-text-link">
+    <a href="#about" class="rotated-text-link" (click)="scrollToSection($event, 'about')">
         <div class="rotated-text-container">
             <p class="rotated-text">{{ isEnglish ? 'Scroll down' : 'Scrollen' }}</p>
             <div class="arrow-down">
