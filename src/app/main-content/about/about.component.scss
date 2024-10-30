@@ -47,11 +47,14 @@ h2 {
 .about_image {
     flex: 1 1 50%;
     position: relative; 
-    z-index: 2; 
+    z-index: 2;
+    display: flex;
+    justify-content: center; 
 }
 
 .about_image img {
     width: 100%;
+    max-width: 500px;
     height: auto;
     padding-right: 0;
     background-size: contain;
@@ -229,7 +232,7 @@ ul {
 }
 
 
-@media (max-width: 930px) {
+@media (max-width: 992px) {
     .about_content {
         flex-wrap: wrap; 
     }
